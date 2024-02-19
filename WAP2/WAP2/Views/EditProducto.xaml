@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.EditProducto"
+             Title="EditProduct"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout Padding="40"
+                     BindingContext="{Binding EditProducto}">
+            <Label Margin="40"
+                   Text="TODO: FOTOS"
+                   BackgroundColor="White">
+
+            </Label>
+            <!-- Nombre del producto -->
+            <Entry x:Name="addTitulo"
+                   Text="{Binding Name, Mode=TwoWay}"
+                   Placeholder="Titulo">
+
+            </Entry>
+            <!-- Descripción del producto -->
+            <Editor x:Name="addDescripcion"
+                    Text="{Binding Description, Mode=TwoWay}"
+                    Placeholder="Descripción">
+
+            </Editor>
+            <!-- Picker de categorias -->
+            <Picker Title="Categoría">
+
+            </Picker>
+            <!-- Picker de subcategorias (Se muestra vacio hasta que se selecione una categoria) -->
+            <Picker Title="Subcategoría">
+
+            </Picker>
+            <!-- Picker de estado del producto -->
+            <Picker Title="Estado del producto">
+
+            </Picker>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Precio del producto -->
+                <Entry x:Name="addPrecioTotal"
+                       Text="{Binding price, Mode=TwoWay}"
+                       Placeholder="Precio"
+                       Grid.Column="0"
+                       Keyboard="Numeric">
+
+                </Entry>
+            </Grid>
+            <!-- Indicador de que la aplicación esta cargando -->
+            <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}">
+
+            </ActivityIndicator>
+            <!-- Botón de guardar cambios -->
+            <Button Command="{Binding SaveProductoCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    Text="Guardar"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    CornerRadius="50"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White">
+
+            </Button>
+            <!-- Botón de eliminar producto -->
+            <Button Command="{Binding DeleteProductoCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    Text="Eliminar"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    CornerRadius="50"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White">
+
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

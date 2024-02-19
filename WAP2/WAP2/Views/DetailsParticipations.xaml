@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.DetailsParticipations"
+             BindingContext="{Binding Pedidos, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding DetailsParticipations}"
+                     Padding="20">
+            <Label Text="Mis pedidos"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,20">
+                
+            </Label>
+            <Frame BackgroundColor="{Binding FrameColor}"
+                   CornerRadius="20"
+                   VerticalOptions="FillAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Frame BackgroundColor="Transparent"
+                           CornerRadius="15"
+                           Padding="0">
+                        <Image Source="{Binding Image}"
+                               Aspect="AspectFill">
+
+                        </Image>
+                    </Frame>
+                    <StackLayout Grid.Row="1"
+                                 Margin="0,15,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}"
+                                   Style="{StaticResource BaseLabel}"
+                                   FontSize="Title">
+                                
+                            </Label>
+                            <Label TextColor="Gray"
+                                   FontSize="Subtitle"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Comprado por mi: ">
+                                            
+                                        </Span>
+                                        <Span Text="{Binding Created}">
+                                            
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <!-- TODO: BOTON INFO SOLO MOSTRADO EN ESTADOS: EN CURSO, EN RIFA -->
+                        </Grid>
+                        <Label Style="{StaticResource BaseLabel}"
+                               FontSize="Title">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Cantidad: ">
+                                        
+                                    </Span>
+                                    <Span Text="{Binding NumeroParticipaciones}">
+                                        
+                                    </Span>
+                                    <Span Text=" EUR">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Gray"
+                               FontSize="Subtitle">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="La venta de empezó: ">
+                                        
+                                    </Span>
+                                    <Span Text="{Binding Created}">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="Gray"
+                               FontSize="Subtitle">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Fecha de cierre: ">
+                                        
+                                    </Span>
+                                    <Span Text="{Binding Created}">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Style="{StaticResource BaseLabel}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Quedan ">
+                                        
+                                    </Span>
+                                    <Span Text="13"
+                                          x:Name="EurRestantes">
+                                        
+                                    </Span>
+                                    <Span Text=" EUR por vender">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <ProgressBar Progress="{Binding CurrentProgressValue}">
+                            
+                        </ProgressBar>
+                        <Label Text="El producto lleva 188 de 201 EUR">
+                            
+                        </Label>
+                        <Label FontSize="Title"
+                               HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Estado: ">
+                                        
+                                    </Span>
+                                    <Span Text="{Binding Estado}">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

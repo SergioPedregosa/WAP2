@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:WAP2.Infrastructure;assembly=WAP2"
+             xmlns:controls="clr-namespace:WAP2.Resources.CustomRenders"
+             x:Class="WAP2.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Locator -->
+            <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+
+            <!-- DataTemplates -->
+            <DataTemplate x:Key="PopularProductsTemplate">
+                <StackLayout>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Margin="-5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Source="user.png"
+                           WidthRequest="75"
+                           HeightRequest="75"
+                           Grid.RowSpan="2"
+                           HorizontalOptions="Start">
+
+                            </Image>
+                            <Label Text="Username"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="1">
+
+                            </Label>
+                            <Label Text="Location"
+                       Grid.Column="1"
+                       Grid.Row="1">
+
+                            </Label>
+                            <Button Text="{StaticResource points}"
+                            FontFamily="Solid"
+                            Style="{StaticResource BaseLabel}"
+                            BackgroundColor="Transparent"
+                            Grid.Column="2"
+                            Grid.RowSpan="2">
+
+                            </Button>
+                        </Grid>
+                    </Frame>
+                    <Frame BackgroundColor="{StaticResource productMarginColor}"
+                   Margin="-5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75"></RowDefinition>
+                                <RowDefinition Height="75"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Image}"
+                           Grid.ColumnSpan="3"
+                           Grid.RowSpan="3">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DetailsProductoCommand}"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Button Text="{StaticResource fav}"
+                            FontFamily="Regular"
+                            FontSize="Title"
+                            CornerRadius="40"
+                            Grid.Column="2"
+                            Grid.Row="2"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            BackgroundColor="{StaticResource favColor}"
+                            TextColor="{StaticResource PrimaryColor}">
+
+                            </Button>
+                        </Grid>
+
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Margin="-5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}"
+                           Style="{StaticResource BaseLabel}"
+                           FontSize="Title"
+                           FontAttributes="Bold">
+
+                            </Label>
+                            <Label Text="{Binding Created}"
+                           Grid.Row="1">
+
+                            </Label>
+                            <ProgressBar ProgressColor="{StaticResource PrimaryColor}"
+                                 Grid.Row="2"
+                                 Progress="0.8"
+                                 >
+
+                            </ProgressBar>
+                            <Label Text="El producto lleva 188 de 201 Eur"
+                           Style="{StaticResource BaseLabel}"
+                           Grid.Row="3">
+
+                            </Label>
+                            <Frame CornerRadius="20"
+                           Padding="15,0,15,0"
+                           Grid.Column="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{StaticResource -}"
+                                   FontFamily="Solid"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Start">
+
+                                    </Label>
+                                    <controls:BorderlessEntry x:Name="EntryParticipations"
+                                                      BackgroundColor="Transparent"
+                                                      Grid.Column="1"
+                                                      VerticalOptions="Center"
+                                                      Keyboard="Numeric"
+                                                      VerticalTextAlignment="Center"
+                                                      HorizontalTextAlignment="Center">
+
+                                    </controls:BorderlessEntry>
+                                    <Label Text="{StaticResource +}"
+                                   FontFamily="Solid"
+                                   Grid.Column="2"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End"
+                                   VerticalTextAlignment="Center">
+
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                            <Label Text="*tu porcentaje de ganar es 1,999%"
+                           x:Name="porcentaje"
+                           Style="{StaticResource BaseLabel}"
+                           FontSize="Micro"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           Grid.RowSpan="2">
+
+                            </Label>
+                            <Button Text="{StaticResource shop}"
+                            x:Name="addToCardButton"
+                            FontFamily="Solid"
+                            FontSize="35"
+                            BackgroundColor="Transparent"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
+                            VerticalOptions="Start">
+
+                            </Button>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="AddressTemplate">
+                <ViewCell>
+                    <Frame Style="{StaticResource BaseCard}"
+                   CornerRadius="15"
+                   Padding="10"
+                   Margin="0,5,0,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Frame Style="{StaticResource BackgroundCard}"
+                           CornerRadius="40"
+                           Grid.Column="0"
+                           Grid.RowSpan="2"
+                           Padding="10">
+                                <Frame Style="{StaticResource PrimaryCard}"
+                               CornerRadius="40"
+                               Padding="10">
+                                    <Image Source="location.png"
+                                   WidthRequest="25"
+                                   HeightRequest="25">
+
+                                    </Image>
+                                </Frame>
+                            </Frame>
+                            <Label Text="{Binding Name}"
+                           Style="{StaticResource BaseLabel}"
+                           Grid.Column="1"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Start">
+
+                            </Label>
+                            <Frame Style="{StaticResource BackgroundCard}"
+                           x:Name="DefaultAddress"
+                           CornerRadius="5"
+                           Padding="5,2,5,2"
+                           Grid.Column="2"
+                           IsVisible="True"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center">
+                                <Label Text="Default"
+                               Style="{StaticResource BaseLabel}"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center">
+
+                                </Label>
+                            </Frame>
+                            <Label Text="{Binding AddressInfo}"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="1">
+
+                            </Label>
+                            <!-- TODO: Command "Cambiar dirección" -->
+                            <Label Text="{StaticResource pen}"
+                           TextColor="{StaticResource PrimaryColor}"
+                           FontFamily="Solid"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="End"
+                           HorizontalOptions="End"
+                           Grid.Column="3"
+                           Grid.RowSpan="2"
+                           Padding="10">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavToEditAddress}"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="PedidosTemplate">
+                <StackLayout>
+                    <Frame CornerRadius="20"
+                           BackgroundColor="{Binding FrameColor}"
+                           Padding="10"
+                           HasShadow="False">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="15"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="10"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!-- Cambiar por ImageFullPath cuando se restablezca Azure        IMPORTANTE -->
+                            <Frame Grid.Row="1" 
+                                   CornerRadius="15"
+                                   BackgroundColor="Transparent"
+                                   Grid.RowSpan="3"
+                                   Padding="0">
+                                <Image Source="{Binding Image}"
+                                       HeightRequest="75"
+                                       WidthRequest="75">
+
+                                </Image>
+                            </Frame>
+                            <Label Text="{Binding Name}"
+                                   Style="{StaticResource BaseLabel}"
+                                   FontSize="Subtitle"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2">
+
+                            </Label>
+                            <Label Style="{StaticResource SubLabel}"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   TextColor="Gray"
+                                   FontSize="12">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Comprado: "
+                                              x:Name="EstadoPedido">
+
+                                        </Span>
+                                        <Span Text="{Binding Created}">
+
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label x:Name="Participations"
+                                   Style="{StaticResource BaseLabel}"
+                                   FontSize="Subtitle"
+                                   Grid.Column="1"
+                                   Grid.Row="2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding NumeroParticipaciones}">
+                                            
+                                        </Span>
+                                        <Span Text=" EUR">
+                                            
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <ProgressBar x:Name="ProgresParticipacion"
+                                 Progress="0.8"
+                                 Grid.Column="1"
+                                 Grid.Row="3">
+
+                            </ProgressBar>
+                            <Label Text="El producto lleva 188 de 201 Eur"
+                                   Style="{StaticResource BaseLabel}"
+                                   Grid.Column="1"
+                                   Grid.Row="4"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="9">
+
+                            </Label>
+                            <Frame BackgroundColor="Black"
+                                   CornerRadius="20"
+                                   Grid.Column="2"
+                                   Grid.Row="3"
+                                   Grid.RowSpan="2"
+                                   Padding="5,3,5,3"
+                                   x:Name="FrameRifa"
+                                   WidthRequest="75">
+                                <!-- TODO: AÑADIR ESTADOS DE PARTICIPACION -->
+                                <Label Text="{Binding Estado}"
+                                       TextColor="White"
+                                       x:Name="EstadoRifa"
+                                       HorizontalTextAlignment="Center">
+
+                                </Label>
+                            </Frame>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DetailsParticipationCommand}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+            <!-- App Colors -->
+            <Color x:Key="BackgroundColor">White</Color>
+            <Color x:Key="BackgroundColorDark">Black</Color>
+            <Color x:Key="TextColor">Black</Color>
+            <Color x:Key="TextColorDark">White</Color>
+            <Color x:Key="DetailsColor">White</Color>
+            <Color x:Key="DetailsColorDark">Black</Color>
+            <Color x:Key="CardBackground">#f2f2f7</Color>
+            <Color x:Key="CardBackgroundDark">#1c1c1e</Color>
+            <Color x:Key="PrimaryColor">#ee5455</Color>
+            <Color x:Key="SinEmpezar">#e8d8de</Color>
+            <Color x:Key="Ganada">#d5f1d8</Color>
+            <Color x:Key="EnCurso">#d3e4e5</Color>
+            <Color x:Key="EnRifa">#f6f2d3</Color>
+            <Color x:Key="Perdida">#efd6d6</Color>
+            <Color x:Key="favColor">#f1d3d9</Color>
+            <Color x:Key="productMarginColor">#efe0e7</Color>
+
+            <!-- Styles -->
+            <Style x:Key="BaseBackground" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"></Setter>
+            </Style>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="ClearButtonVisibility"     Value = "WhileEditing"   />
+                <Setter Property="WidthRequest"    Value = "150"        />
+                <Setter Property="BackgroundColor" Value = "{AppThemeBinding Dark={StaticResource CardBackgroundDark}, Light={StaticResource CardBackground}}"    />
+            </Style>
+            <Style x:Key="Separator" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Color" Value="Gray" />
+                <Setter Property="Margin" Value="0, 5, 0, 5" />
+                <Setter Property="Opacity" Value="0.5" />
+            </Style>
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="SubLabel" TargetType="Label">
+                <Setter Property="TextColor"
+    Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark}, Light={StaticResource CardBackground}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BaseCard" TargetType="Frame">
+                <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark}, Light={StaticResource CardBackground}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BackgroundCard" TargetType="Frame">
+                <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="PrimaryCard" TargetType="Frame">
+                <Setter Property="BackgroundColor"
+                Value="{StaticResource PrimaryColor}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BaseDetails" TargetType="ScrollView">
+                <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Dark={StaticResource DetailsColorDark}, Light={StaticResource DetailsColor}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BaseEntry" TargetType="Entry">
+                <Setter Property="PlaceholderColor"
+                Value="{AppThemeBinding Dark={StaticResource CardBackground}, Light={StaticResource CardBackgroundDark}}">
+
+                </Setter>
+                <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BasePicker" TargetType="Picker">
+                <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}">
+
+                </Setter>
+                <Setter Property="TitleColor"
+                Value="{AppThemeBinding Dark={StaticResource CardBackground}, Light={StaticResource CardBackgroundDark}}">
+
+                </Setter>
+            </Style>
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="BorderColor"
+                Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}">
+
+                </Setter>
+                <Setter Property="BorderWidth"
+                Value="2">
+
+                </Setter>
+                <Setter Property="BackgroundColor"
+                Value="Transparent">
+
+                </Setter>
+                <Setter Property="CornerRadius"
+                Value="10">
+
+                </Setter>
+                <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColor}}">
+
+                </Setter>
+            </Style>
+
+            <!-- Iconos -->
+            <x:String x:Key="alarm">&#xf0f3;</x:String>
+            <x:String x:Key="flame">&#xf7e4;</x:String>
+            <x:String x:Key="shop">&#xf291;</x:String>
+            <x:String x:Key="buy">&#xf2b5;</x:String>
+            <x:String x:Key="sale">&#xf51e;</x:String>
+            <x:String x:Key="money">&#xf4d3;</x:String>
+            <x:String x:Key="conf">&#xf013;</x:String>
+            <x:String x:Key="confSave">&#xf013; Guardar</x:String>
+            <x:String x:Key="logout">&#xf2f5;</x:String>
+            <x:String x:Key="help">&#xf059;</x:String>
+            <x:String x:Key="filter">&#xf0c9;</x:String>
+            <x:String x:Key="search">&#xf002;</x:String>
+            <x:String x:Key="clothing">&#xf553; Ropa</x:String>
+            <x:String x:Key="kids">&#xf1ae; Niños</x:String>
+            <x:String x:Key="entretainment">&#xf26c; Entretenimiento</x:String>
+            <x:String x:Key="home">&#xf015; Casa</x:String>
+            <x:String x:Key="pets">&#xf1b0; Mascotas</x:String>
+            <x:String x:Key="tecno">&#xf025; Tecnólogia</x:String>
+            <x:String x:Key="price">&#xf02b;</x:String>
+            <x:String x:Key="new">&#xf4b8;</x:String>
+            <x:String x:Key="message">&#xf0e0;</x:String>
+            <x:String x:Key="fav">&#xf004;</x:String>
+            <x:String x:Key="chart">&#xf080;</x:String>
+            <x:String x:Key="location">&#xf3c5;</x:String>
+            <x:String x:Key="plus">&#x2b;</x:String>
+            <x:String x:Key="arrow">&#xf061;</x:String>
+            <x:String x:Key="charge">&#xf788;</x:String>
+            <x:String x:Key="withdraw">&#xf19c;</x:String>
+            <x:String x:Key="desp">&#xf054;</x:String>
+            <x:String x:Key="check">&#xf00c;</x:String>
+            <x:String x:Key="nocheck">&#xf00d;</x:String>
+            <x:String x:Key="premium">&#xf521;</x:String>
+            <x:String x:Key="about">&#xf05a;</x:String>
+            <x:String x:Key="star">&#xf5c0;</x:String>
+            <x:String x:Key="pen">&#xf304;</x:String>
+            <x:String x:Key="buyButton">&#xf290; Comprar</x:String>
+            <x:String x:Key="cart">&#xf07a;</x:String>
+            <x:String x:Key="user">&#xf007;</x:String>
+            <x:String x:Key="x">&#x58;</x:String>
+            <x:String x:Key="points">&#xf142;</x:String>
+            <x:String x:Key="-">&#xf068;</x:String>
+            <x:String x:Key="+">&#x2b;</x:String>
+            <x:String x:Key="filter2">&#xf0b0;</x:String>
+            <x:String x:Key="comment">&#xf075;</x:String>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

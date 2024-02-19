@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.VerificacionYSeguridad"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <!-- Cambiar contraseña -->
+            <StackLayout>
+                <Frame BackgroundColor="White"
+               CornerRadius="15"
+               HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Contraseña"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       FontSize="Medium">
+
+                        </Label>
+                        <Button Text="Cambiar"
+                        Grid.Column="1"
+                        TextColor="{DynamicResource PrimaryColor}"
+                        BackgroundColor="Transparent"
+                        BorderColor="{DynamicResource PrimaryColor}"
+                        BorderWidth="1"
+                        CornerRadius="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        Clicked="navToCambiarContraseña">
+
+                        </Button>
+                    </Grid>
+
+                </Frame>
+            </StackLayout>
+            <!-- Verificar correo -->
+            <StackLayout>
+                <Frame BackgroundColor="White"
+               CornerRadius="15"
+               HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Correo"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+
+                        </Label>
+                        <!-- Iconos que muestran el estado del verificado -->
+                        <Label Text="{StaticResource check}"
+                       x:Name="iconoConVerificadoCorreo"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="LawnGreen"
+                       FontSize="Medium"
+                       IsVisible="True">
+
+                        </Label>
+                        <Label Text="{StaticResource nocheck}"
+                       x:Name="iconoSinVerificadoCorreo"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="Red"
+                       FontSize="Medium"
+                       IsVisible="False">
+
+                        </Label>
+                        <!-- Texto que muesta el estado del verificado -->
+                        <Label Text="Verificado"
+                       x:Name="verificadoCorreo"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="LawnGreen"
+                       FontSize="Medium">
+
+                        </Label>
+                        <Button Text="Cambiar"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        TextColor="{StaticResource PrimaryColor}"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource PrimaryColor}"
+                        BorderWidth="1"
+                        CornerRadius="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End">
+
+                        </Button>
+                        <!-- Muestra el correo actual -->
+                        <Label Text="Correo@correo.com"
+                       Style="{StaticResource BaseLabel}"
+                       x:Name="mostrarCorreo"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start">
+
+                        </Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <!-- Verificar telefono -->
+            <StackLayout>
+                <Frame BackgroundColor="White"
+               CornerRadius="15"
+               HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Teléfono"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+
+                        </Label>
+                        <!-- Iconos que muestran el estado del verificado -->
+                        <Label Text="{StaticResource check}"
+                       x:Name="iconoConVerificadoTelefono"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="LawnGreen"
+                       FontSize="Medium"
+                       IsVisible="True">
+
+                        </Label>
+                        <Label Text="{StaticResource nocheck}"
+                       x:Name="iconoSinVerificadoTelefono"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="Red"
+                       FontSize="Medium"
+                       IsVisible="False">
+
+                        </Label>
+                        <!-- Texto que muestra el estado del verificado -->
+                        <Label Text="Verificado"
+                       x:Name="verificadoTelefono"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="LawnGreen"
+                       FontSize="Medium">
+
+                        </Label>
+                        <Button Text="Cambiar"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        TextColor="{StaticResource PrimaryColor}"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource PrimaryColor}"
+                        BorderWidth="1"
+                        CornerRadius="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End">
+
+                        </Button>
+                        <!-- Texto que muestra el teléfono actual -->
+                        <Label Text="+37123456789"
+                       Style="{StaticResource BaseLabel}"
+                       x:Name="mostrarTelefono"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start">
+
+                        </Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <!-- Verificado de Facebook -->
+            <StackLayout>
+                <Frame BackgroundColor="White"
+               CornerRadius="15"
+               HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Facebook"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center">
+
+                        </Label>
+                        <!-- Iconos que muestan el estado del verificado -->
+                        <Label Text="{StaticResource check}"
+                       x:Name="iconoConVerificadoFacebook"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="LawnGreen"
+                       FontSize="Medium"
+                       IsVisible="False">
+
+                        </Label>
+                        <Label Text="{StaticResource nocheck}"
+                       x:Name="iconoSinVerificadoFacebook"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       FontFamily="Solid"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="Red"
+                       FontSize="Medium"
+                       IsVisible="True">
+
+                        </Label>
+                        <!-- Texto que muesta el estado del verificado -->
+                        <Button Text="Verificar"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        CornerRadius="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        >
+
+                        </Button>
+                        <!-- Texto que muestra el estado del verificado -->
+                        <Label Text="No verificado"
+                       x:Name="verificadoFacebook"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       FontSize="Medium"
+                       TextColor="Red"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center">
+
+                        </Label>
+                        <!-- Texto que muestra el Facebook actual -->
+                        <Label Text=""
+                       x:Name="mostrarFacebook"
+                       Style="{StaticResource BaseLabel}"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start">
+
+                        </Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

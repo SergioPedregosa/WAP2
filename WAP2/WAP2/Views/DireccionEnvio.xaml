@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.DireccionEnvio"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout x:Name="SinDirecciones"
+                 IsVisible="False">
+                <Label Text="¡Todavía no has añadido una dirección de envio!"
+               TextColor="Gray"
+               FontSize="Medium"
+               HorizontalTextAlignment="Center">
+
+                </Label>
+                <Image Source="image_placeholder.png"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand">
+
+                </Image>
+            </StackLayout>
+            <StackLayout x:Name="ConDirecciones"
+                 BindingContext="{Binding Address, Source={StaticResource Locator}}">
+                <ListView x:Name="ListAddress"
+                  ItemTemplate="{StaticResource AddressTemplate}"
+                  ItemsSource="{Binding addresses}"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshAddressesCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  HasUnevenRows="True"
+                  >
+                </ListView>
+            </StackLayout>
+
+            <Button Text="Añadir dirección"
+            CornerRadius="40"
+            BackgroundColor="{StaticResource PrimaryColor}"
+            TextColor="White"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand"
+            Clicked="navToCambiarDireccion">
+
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

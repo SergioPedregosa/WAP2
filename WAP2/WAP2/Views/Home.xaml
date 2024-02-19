@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:tabs="http://sharpnado.com"
+             mc:Ignorable="d"
+             x:Class="WAP2.Views.Home"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"
+             IconImageSource="profile_icon.png"
+             Title="Perfil"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Imagen de usuario -->
+                <Image Source="User.png"
+                       WidthRequest="75"
+                       HeightRequest="75"
+                       Grid.RowSpan="2">
+
+                </Image>
+                <!-- Botón de opciones -->
+                <Frame BackgroundColor="LightSlateGray"
+                       CornerRadius="40"
+                       HorizontalOptions="End"
+                       VerticalOptions="End"
+                       Margin="0,0,5,0"
+                       Padding="0"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       Grid.Row="1">
+                    <Label Text="{StaticResource filter}"
+                           FontFamily="Solid"
+                           Style="{StaticResource BaseLabel}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center">
+
+                    </Label>
+                </Frame>
+                <!-- Nombre de usuario -->
+                <Label Text="Hey Alice"
+                       x:Name="UsernameTest"
+                       Style="{StaticResource BaseLabel}"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       Grid.Column="1">
+
+                </Label>
+                <Label Text="Bienvenid@ de nuevo!"
+                       TextColor="{StaticResource PrimaryColor}"
+                       TextDecorations="Underline"
+                       FontSize="Subtitle"
+                       Grid.Column="1"
+                       Grid.Row="1">
+
+                </Label>
+                <!-- Carrito de la compra -->
+                <Button Text="{StaticResource cart}"
+                        Style="{StaticResource BaseLabel}"
+                        FontFamily="Solid"
+                        BackgroundColor="Transparent"
+                        FontSize="45"
+                        Grid.Column="2"
+                        Grid.RowSpan="2">
+
+                </Button>
+            </Grid>
+            <StackLayout Margin="10,0,10,0">
+                <!-- Mi Cuenta -->
+                <Frame BackgroundColor="#d4e4e6"
+                       CornerRadius="20"
+                       Padding="15"
+                       Margin="0,30,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{StaticResource user}"
+                               FontFamily="Solid"
+                               FontAttributes="Bold"
+                               Grid.RowSpan="2"
+                               FontSize="35"
+                               VerticalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="Mi cuenta"
+                               FontAttributes="Bold"
+                               FontSize="Title"
+                               Grid.Column="1">
+
+                        </Label>
+                        <Label Text="Configura y edita tu cuenta"
+                               Grid.Column="1"
+                               Grid.Row="1">
+
+                        </Label>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToConfiguracion"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!-- Mis Pedidos -->
+                <Frame BackgroundColor="#d4e4e6"
+                       CornerRadius="20"
+                       Padding="15"
+                       Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{StaticResource shop}"
+                               FontFamily="Solid"
+                               FontAttributes="Bold"
+                               Grid.RowSpan="2"
+                               FontSize="35"
+                               VerticalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="Mis pedidos"
+                               FontAttributes="Bold"
+                               FontSize="Title"
+                               VerticalTextAlignment="End"
+                               VerticalOptions="End"
+                               Grid.Column="1">
+
+                        </Label>
+                        <Label Text="Ver todos tus pedidos"
+                               Grid.Column="1"
+                               VerticalTextAlignment="Start"
+                               VerticalOptions="Start"
+                               Grid.Row="1">
+
+                        </Label>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToMisPedidos"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!-- Mis anuncios -->
+                <Frame BackgroundColor="#d4e4e6"
+                       CornerRadius="20"
+                       Padding="15"
+                       Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{StaticResource filter}"
+                               FontFamily="Solid"
+                               FontAttributes="Bold"
+                               Grid.RowSpan="2"
+                               FontSize="35"
+                               VerticalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="Mis anuncios"
+                               FontAttributes="Bold"
+                               FontSize="Title"
+                               Grid.Column="1">
+
+                        </Label>
+                        <Label Text="Ver tu lista de productos en venta"
+                               Grid.Column="1"
+                               Grid.Row="1">
+
+                        </Label>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToMisAnuncios"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!-- Artículos favoritos -->
+                <Frame BackgroundColor="#d4e4e6"
+                       CornerRadius="20"
+                       Padding="15"
+                       Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{StaticResource fav}"
+                               FontFamily="Solid"
+                               FontAttributes="Bold"
+                               Grid.RowSpan="2"
+                               FontSize="35"
+                               VerticalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="Artículos favoritos"
+                               FontAttributes="Bold"
+                               FontSize="Title"
+                               Grid.Column="1">
+
+                        </Label>
+                        <Label Text="Ver tu lista de deseos"
+                               Grid.Column="1"
+                               Grid.Row="1">
+
+                        </Label>
+                    </Grid>
+                </Frame>
+                <!-- Cerrar sesión -->
+                <Frame BackgroundColor="#d4e4e6"
+                       CornerRadius="20"
+                       Padding="15"
+                       Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="{StaticResource logout}"
+                               FontFamily="Solid"
+                               FontAttributes="Bold"
+                               Grid.RowSpan="2"
+                               FontSize="35"
+                               VerticalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="Cerrar sesión"
+                               FontAttributes="Bold"
+                               FontSize="Title"
+                               Grid.Column="1">
+
+                        </Label>
+                        <Label Text="Cierra la sesión actual"
+                               Grid.Column="1"
+                               Grid.Row="1">
+
+                        </Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <!-- Provisional -->
+            <Button Text="Buscador"
+                    Clicked="navToBuscador">
+                
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

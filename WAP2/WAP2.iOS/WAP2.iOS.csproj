@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98B521D6-081A-422D-9AC7-72F5BE746E38}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WAP2.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>WAP2.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <BundleResource Include="Resources\icon_about.png" />
+    <BundleResource Include="Resources\icon_about%402x.png" />
+    <BundleResource Include="Resources\icon_about%403x.png" />
+    <BundleResource Include="Resources\icon_feed.png" />
+    <BundleResource Include="Resources\icon_feed%402x.png" />
+    <BundleResource Include="Resources\icon_feed%403x.png" />
+    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\xamarin_logo%402x.png" />
+    <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity">
+      <Version>1.10.4</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm">
+      <Version>8.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Graph">
+      <Version>5.41.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Identity.Client">
+      <Version>4.59.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt">
+      <Version>7.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>6.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps">
+      <Version>5.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\WAP2\WAP2.csproj">
+      <Project>{426EE26D-0074-43AB-A4B6-E7433F7AEDB8}</Project>
+      <Name>WAP2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_downDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_downLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Buhonero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cameraDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cameraLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\esp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\favorite_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FondoWap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\france.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconoWap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\image_placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\list_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\message_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Patches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\portugal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\premium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\roulette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\search_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\share_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shopping_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\united_kingdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whatsapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\andorra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WAPTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WAP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WAPIcon.png" />
+  </ItemGroup>
+</Project>

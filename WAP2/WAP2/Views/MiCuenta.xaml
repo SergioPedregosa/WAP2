@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.MiCuenta"
+             xmlns:local="clr-namespace:WAP2.Resources.CustomRenders"
+             Style="{StaticResource BaseBackground}">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="User.png"
+               x:Name="UserImage"
+               HeightRequest="75"
+               WidthRequest="75"
+               Grid.RowSpan="2">
+
+                </Image>
+                <Label Text="Alice Eve"
+               x:Name="Username"
+               TextColor="{StaticResource PrimaryColor}"
+               FontSize="Title"
+               FontAttributes="Bold"
+               Grid.Column="1">
+
+                </Label>
+                <Label Text="alice.eve@gmail.com"
+               x:Name="Email"
+               TextColor="Gray"
+               Grid.Column="1"
+               Grid.Row="1">
+
+                </Label>
+                <Button Text="X"
+                FontFamily="Solid"
+                FontSize="40"
+                BackgroundColor="Transparent"
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                Clicked="Return">
+
+                </Button>
+            </Grid>
+            <StackLayout>
+                <Label Text="Mi cuenta"
+               Style="{StaticResource BaseLabel}"
+               FontSize="Title"
+               FontAttributes="Bold"
+               Margin="0,30,0,5">
+
+                </Label>
+                <Label Text="Nombre: "
+               Style="{StaticResource BaseLabel}"
+               Margin="0,5,0,0"
+               FontAttributes="Bold"
+               FontSize="Subtitle">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <local:BorderlessEntry Text="Alice Eve"
+                                   x:Name="EntryName"
+                                   Style="{StaticResource BaseEntry}">
+
+                    </local:BorderlessEntry>
+                </Frame>
+                <Label Text="Email: "
+               Style="{StaticResource BaseLabel}"
+               Margin="0,5,0,0"
+               FontAttributes="Bold"
+               FontSize="Subtitle">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <local:BorderlessEntry Text="alice.eve@gmail.com"
+                   x:Name="EntryEmail"
+                   Style="{StaticResource BaseEntry}">
+
+                    </local:BorderlessEntry>
+                </Frame>
+                <Label Text="Teléfono: "
+               Style="{StaticResource BaseLabel}"
+               Margin="0,5,0,0"
+               FontAttributes="Bold"
+               FontSize="Subtitle">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <local:BorderlessEntry Text="+1 561-230-0033"
+                   x:Name="EntryPhone"
+                   Style="{StaticResource BaseEntry}">
+
+                    </local:BorderlessEntry>
+                </Frame>
+
+            </StackLayout>
+            <Button Text="{StaticResource confSave}"
+            FontFamily="Solid"
+            VerticalOptions="EndAndExpand"
+            Style="{StaticResource BaseButton}"
+            Clicked="Save">
+
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

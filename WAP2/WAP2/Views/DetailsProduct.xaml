@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WAP2.Resources.CustomRenders"
+             x:Class="WAP2.Views.DetailsProduct"
+             Title="DetailsProduct"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"
+             BindingContext="{Binding Buscador, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding DetailsProduct}"
+             Padding="20">
+            <Label Text="WAP"
+           TextColor="{StaticResource PrimaryColor}"
+           FontSize="Title"
+           HorizontalTextAlignment="End">
+
+            </Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout x:Name="Fotos">
+                    <!-- Imagenes del producto -->
+                    <!-- CAMBIAR A imageFullPath CUANDO SE VUELVA A RESTAURAR AZURE     IMPORTANTE -->
+                    <Image Source="{Binding Image}"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"></Image>
+                </StackLayout>
+                <ScrollView Style="{StaticResource BaseDetails}"
+                    Padding="15"
+                    Margin="0,0,0,25"
+                    Grid.Row="1"
+                    HeightRequest="300">
+                    <StackLayout x:Name="Info">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!-- Nombre del producto -->
+                            <Label Text="{Binding Name}"
+                           Style="{StaticResource BaseLabel}"
+                           x:Name="name"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"
+                           VerticalTextAlignment="Center">
+
+                            </Label>
+                            <Button Text="{StaticResource comment}"
+                            CornerRadius="40"
+                            FontSize="30"
+                            TextColor="White"
+                            FontFamily="Regular"
+                            Grid.Column="1"
+                            HeightRequest="55"
+                            WidthRequest="55"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            BackgroundColor="{StaticResource PrimaryColor}">
+
+                            </Button>
+
+                        </Grid>
+                        <!-- Categoria -->
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Categoría: "
+                                  Style="{StaticResource BaseLabel}">
+
+                                    </Span>
+                                    <Span Text="{Binding Subcategory}"
+                                  Style="{StaticResource BaseLabel}"
+                                  FontAttributes="Bold">
+
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <!-- Descripción -->
+                        <Label Text="Descripción"
+                   Style="{StaticResource BaseLabel}"
+                   FontSize="Medium">
+
+                        </Label>
+                        <Label Text="{Binding Description}"
+                       Style="{StaticResource BaseLabel}">
+
+                        </Label>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Fecha: "
+                                  Style="{StaticResource BaseLabel}">
+
+                                    </Span>
+                                    <Span Text="{Binding Created}"
+                                  Style="{StaticResource BaseLabel}"
+                                  FontAttributes="Bold">
+
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Frame BackgroundColor="{StaticResource favColor}"
+                           CornerRadius="40"
+                           Padding="5,0,5,0"
+                           HasShadow="False"
+                           Grid.Column="1"
+                           HorizontalOptions="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button Text="{StaticResource -}"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="Solid">
+
+                                    </Button>
+                                    <controls:BorderlessEntry x:Name="EntryParticipations"
+                                                      Keyboard="Numeric"
+                                                      Grid.Column="1">
+
+                                    </controls:BorderlessEntry>
+                                    <Button Text="{StaticResource +}"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="Solid"
+                                    FontSize="20"
+                                    Grid.Column="2">
+
+                                    </Button>
+                                </Grid>
+                            </Frame>
+                            <Button Text="{StaticResource help}"
+                            FontFamily="Solid"
+                            CornerRadius="40"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            FontSize="25"
+                            Grid.Column="2"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            BackgroundColor="{StaticResource productMarginColor}">
+
+                            </Button>
+                        </Grid>
+                        <Label Text="*tu porcentaje de ganar es "
+                       x:Name="procentajeDetails"
+                       Style="{StaticResource BaseLabel}"
+                       HorizontalTextAlignment="Center">
+
+                        </Label>
+                        <Label Text="1 EUR"
+                       x:Name="ParticipacionesDetails"
+                       Style="{StaticResource BaseLabel}"
+                       FontSize="Subtitle"
+                       HorizontalTextAlignment="Center">
+
+                        </Label>
+                        <ProgressBar Margin="70,0,70,0"
+                             Progress="0.8"
+                             x:Name="progressDetails">
+
+                        </ProgressBar>
+                        <Label Text="El producto lleva 186 de 201 Eur"
+                       x:Name="PriceDetails"
+                       Style="{StaticResource BaseLabel}"
+                       HorizontalTextAlignment="Center">
+
+                        </Label>
+
+                    </StackLayout>
+                </ScrollView>
+
+            </Grid>
+            <StackLayout Padding="-20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="a favoritos"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,-5,0">
+
+                    </Button>
+                    <Button Text="añadir a la cesta"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    Grid.Column="1"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="-5,0,0,0">
+
+                    </Button>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

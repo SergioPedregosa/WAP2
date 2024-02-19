@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="WAP2.Views.CambiarDireccionEnvio">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <!-- MAPA -->
+                <maps:Map x:Name="Map"
+                  HeightRequest="300"
+                  WidthRequest="200"
+                  MapClicked="setNewAddress">
+
+                </maps:Map>
+            </StackLayout>
+            <StackLayout Padding="20">
+                <Label Text="Añadir dirección"
+           Style="{StaticResource BaseLabel}"
+           FontAttributes="Bold"
+           FontSize="Title"
+           HorizontalTextAlignment="Center">
+
+                </Label>
+                <BoxView Style="{StaticResource Separator}"></BoxView>
+                <!-- Nombre de la dirección -->
+                <Label Text="Nombre de la dirección"
+           Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+           Padding="5"
+           CornerRadius="10">
+                    <Entry x:Name="addressName"
+                   Text="{Binding Name, Mode=TwoWay}">
+
+                    </Entry>
+                </Frame>
+                <!-- Detalles de la dirección -->
+                <Entry x:Name="UserRID"
+               Text="{Binding UserRID, Mode=TwoWay}"
+               IsVisible="False">
+
+                </Entry>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Detalles de la dirección"
+                   Style="{StaticResource BaseLabel}"
+                   Grid.ColumnSpan="2">
+
+                    </Label>
+                    <Label Text="Piso"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource BaseLabel}">
+
+                    </Label>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="5,14,5,14"
+                   CornerRadius="10"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2">
+                        <Label x:Name="detailsAddress"
+                       FontSize="Medium"
+                       Style="{StaticResource BaseLabel}"
+                       Text="{Binding AddressInfo, Mode=TwoWay}">
+
+                        </Label>
+
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="5"
+                   CornerRadius="10"
+                   Grid.Row="1"
+                   Grid.Column="2">
+                        <Entry x:Name="detailsPiso"
+                       Text="{Binding Floor, Mode=TwoWay}"
+                       Style="{StaticResource entryStyle}">
+
+                        </Entry>
+                    </Frame>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="checkDefault">
+
+                    </CheckBox>
+                    <Label Text="Usar esta dirección por defecto"
+               Style="{StaticResource BaseLabel}"
+               Grid.Column="1"
+               VerticalTextAlignment="Center">
+
+                    </Label>
+                </Grid>
+                <!-- Position -->
+                <Entry x:Name="entryLat"
+               Text="{Binding Lat, Mode=TwoWay}"
+               IsVisible="False">
+
+                </Entry>
+                <Entry x:Name="entryLon"
+               Text="{Binding Lon, Mode=TwoWay}"
+               IsVisible="False">
+
+                </Entry>
+                <Label Style="{StaticResource BaseLabel}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Compartiremos tus datos con la empresa de transporte para gestionar tus envíos. Para saber más, consulta las ">
+
+                            </Span>
+                            <Span Text="Condiciones de uso"
+                      TextDecorations="Underline"
+                      >
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NavToCondiciones"></TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" y la ">
+
+                            </Span>
+                            <Span Text="Política de privacidad"
+                      TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NavToPoliticaPrivacidad"></TapGestureRecognizer>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" de WAP.">
+
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                </Label>
+                <Button Command="{Binding AddAddressCommand}"
+                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                Text="Guardar"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                TextColor="White"
+                CornerRadius="40"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

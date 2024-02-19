@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.Configuracion"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="20,10,20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Editar perfil"
+               Grid.Column="0"
+               Grid.Row="0"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10"
+               >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToEditarPerfil"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="{StaticResource desp}"
+               FontFamily="Solid"
+               Grid.Column="1"
+               Grid.Row="0"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToEditarPerfil"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="1" Grid.ColumnSpan="2"></BoxView>
+                <Label Text="Verificaciones y seguridad"
+               Grid.Column="0"
+               Grid.Row="2"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToVerificacionYSeguridad"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="{StaticResource desp}"
+               FontFamily="Solid"
+               Grid.Column="1"
+               Grid.Row="2"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToVerificacionYSeguridad"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="3" Grid.ColumnSpan="2"></BoxView>
+                <Label Text="Dirección de envío"
+               Grid.Column="0"
+               Grid.Row="4"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToDireccionDeEnvio"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="{StaticResource desp}"
+               FontFamily="Solid"
+               Grid.Column="1"
+               Grid.Row="4"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToDireccionDeEnvio"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="5" Grid.ColumnSpan="2"></BoxView>
+                <Label Text="Notificaciones"
+               Grid.Column="0"
+               Grid.Row="6"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToNotificaciones"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="{StaticResource desp}"
+               FontFamily="Solid"
+               Grid.Column="1"
+               Grid.Row="6"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToNotificaciones"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="7" Grid.ColumnSpan="2"></BoxView>
+                <Label Text="Modo oscuro"
+               Grid.Column="0"
+               Grid.Row="8"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10">
+
+                </Label>
+                <Switch Grid.Row="8"
+                x:Name="SwitchDarkMode"
+                Toggled="DarkMode">
+
+                </Switch>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="9" Grid.ColumnSpan="2"></BoxView>
+                <Label Text="Eliminar cuenta de WAP"
+               Grid.Column="0"
+               Grid.Row="10"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               Margin="0,10,0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToEliminarCuenta"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="{StaticResource desp}"
+               FontFamily="Solid"
+               Grid.Column="1"
+               Grid.Row="10"
+               FontSize="Medium"
+               Style="{StaticResource BaseLabel}"
+               VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="navToEliminarCuenta"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Style="{StaticResource Separator}" Grid.Row="11" Grid.ColumnSpan="2"></BoxView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

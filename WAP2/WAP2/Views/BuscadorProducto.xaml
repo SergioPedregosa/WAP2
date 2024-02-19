@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.BuscadorProducto"
+             IconImageSource="search_icon.png"
+             Title="Buscador"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"
+             BindingContext="{Binding Buscador, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <StackLayout Margin="0,0,0,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Text="{StaticResource filter2}"
+                    FontFamily="Solid"
+                    FontSize="Title"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    BackgroundColor="Transparent">
+
+                    </Button>
+                    <Label Text="Explorar"
+                   FontSize="20"
+                   Style="{StaticResource BaseLabel}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   Grid.Column="1">
+
+                    </Label>
+                    <Button Text="{StaticResource cart}"
+                    FontFamily="Solid"
+                    FontSize="Title"
+                    Grid.Column="2"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent">
+
+                    </Button>
+                </Grid>
+            </StackLayout>
+            <StackLayout Margin="0,10,0,10">
+                <Frame Style="{StaticResource BaseCard}"
+               CornerRadius="30"
+               Padding="15,0,15,0">
+                    <Entry x:Name="Buscador"
+                                      Placeholder="Buscar libros, guitarras y mas..."
+                                      Style="{StaticResource entryStyle}"
+                                      BackgroundColor="Transparent">
+
+                    </Entry>
+                </Frame>
+            </StackLayout>
+            <!-- Producto -->
+            <StackLayout>
+                <CollectionView x:Name="ProductTemplate"
+                        ItemTemplate="{StaticResource PopularProductsTemplate}"
+                        BindingContext="{Binding Buscador, Source={StaticResource Locator}}"
+                        ItemsSource="{Binding Products}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="6"
+                                 HorizontalItemSpacing="10">
+
+                        </GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

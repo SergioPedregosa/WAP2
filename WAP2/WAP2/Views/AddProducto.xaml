@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="AddProducto"
+             xmlns:controls="clr-namespace:WAP2.Resources.CustomRenders"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark}, Light={StaticResource BackgroundColor}}"
+             BindingContext="{Binding AddProducto, Source={StaticResource Locator}}"
+             x:Class="WAP2.Views.AddProducto">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30">
+                <Label Text="Subir Producto"
+               Style="{StaticResource BaseLabel}"
+               FontSize="Subtitle"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center">
+
+                </Label>
+                <!-- Titulo -->
+                <Label Text="Título:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <controls:BorderlessEntry Style="{StaticResource entryStyle}"
+                                  x:Name="entryTitulo">
+
+                    </controls:BorderlessEntry>
+                </Frame>
+                <!-- Categoría -->
+                <Label Text="Categoría:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <controls:CustomPicker Style="{StaticResource entryStyle}"
+                                   x:Name="PickerCategoria"
+                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+
+                    </controls:CustomPicker>
+                </Frame>
+                <!-- Subcategoria -->
+                <Label Text="Sub Categoria:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <controls:CustomPicker Style="{StaticResource entryStyle}"
+                                   x:Name="PickerSubcategoria"
+                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+
+                    </controls:CustomPicker>
+                </Frame>
+                <!-- Estado -->
+                <Label Text="Estado:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <controls:CustomPicker Style="{StaticResource entryStyle}"
+                                   x:Name="PickerEstado"
+                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+
+                    </controls:CustomPicker>
+                </Frame>
+                <!-- Año / Precio -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Año:"
+                   Style="{StaticResource BaseLabel}">
+
+                    </Label>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15,0,15,0"
+                   CornerRadius="10"
+                   Grid.Row="1">
+                        <controls:BorderlessEntry Style="{StaticResource entryStyle}"
+                                          x:Name="entryAño"
+                                          Keyboard="Numeric">
+
+                        </controls:BorderlessEntry>
+                    </Frame>
+                    <Label Text="Precio:"
+                   Style="{StaticResource BaseLabel}"
+                   Grid.Column="1">
+
+                    </Label>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15,0,15,0"
+                   CornerRadius="10"
+                   Grid.Column="1"
+                   Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <controls:BorderlessEntry Style="{StaticResource entryStyle}"
+                                              x:Name="entryPrecio"
+                                              Keyboard="Numeric">
+
+                            </controls:BorderlessEntry>
+                            <Label Text="€"
+                           Grid.Column="1"
+                           FontSize="20"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="End"
+                           Style="{StaticResource BaseLabel}">
+
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </Grid>
+                <!-- Descripción -->
+                <Label Text="Descripción:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Frame Style="{StaticResource BaseCard}"
+               Padding="15,0,15,0"
+               CornerRadius="10">
+                    <Editor Style="{StaticResource entryStyle}"
+                                   x:Name="entryDescripcion"
+                                   HeightRequest="100">
+
+                    </Editor>
+                </Frame>
+                <!-- Fotos -->
+                <Label Text="Fotos:"
+               Style="{StaticResource BaseLabel}">
+
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10"
+                   Grid.Column="1">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10"
+                   Grid.Column="2">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10"
+                   Grid.Row="1">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10"
+                   Grid.Column="1"
+                   Grid.Row="1">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                    <Frame Style="{StaticResource BaseCard}"
+                   Padding="15"
+                   CornerRadius="10"
+                   Grid.Column="2"
+                   Grid.Row="1">
+                        <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       WidthRequest="100"
+                       HeightRequest="45">
+
+                        </Image>
+                    </Frame>
+                </Grid>
+                <!--Botón subir -->
+                <Button Text="Subir"
+                Margin="0,15,0,0"
+                Style="{StaticResource BaseButton}">
+
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
