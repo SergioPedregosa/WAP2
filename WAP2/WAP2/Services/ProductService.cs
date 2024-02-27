@@ -14,6 +14,7 @@ namespace WAP2.Services
         List<ObservableCollection<ProductItemViewModel>> productsObservable = new List<ObservableCollection<ProductItemViewModel>>();
         List<Producto> products = new List<Producto>();
         List<ParticipationItemViewModel> participations = new List<ParticipationItemViewModel>();
+        List<Anuncio> anuncios = new List<Anuncio>();
         static ProductItemViewModel producto1 = new ProductItemViewModel
         {
             ProductId = 1,
@@ -175,7 +176,93 @@ namespace WAP2.Services
             TempBarValue = producto5.TempBarValue,
             User_RID = producto5.User_RID
         };
-        public List<Producto> mountList()
+        //SIMULACION ANUNCIOS
+        Anuncio anuncio1 = new Anuncio
+        {
+            AnuncioId = 01,
+            Estado = "Sin empezar",
+            FrameColor = Color.FromHex("#e8d8de"),
+            ProductId = producto1.ProductId,
+            Name = producto1.Name,
+            Description = producto1.Description,
+            Price = producto1.Price,
+            Created = producto1.Created,
+            Category = producto1.Category,
+            Subcategory = producto1.Subcategory,
+            Status = producto1.Status,
+            Image = producto1.Image,
+            TempBarValue = producto1.TempBarValue,
+            User_RID = producto1.User_RID
+        };
+        Anuncio anuncio2 = new Anuncio
+        {
+            AnuncioId = 02,
+            Estado = "En curso",
+            FrameColor = Color.FromHex("#d3e4e5"),
+            ProductId = producto2.ProductId,
+            Name = producto2.Name,
+            Description = producto2.Description,
+            Price = producto2.Price,
+            Created = producto2.Created,
+            Category = producto2.Category,
+            Subcategory = producto2.Subcategory,
+            Status = producto2.Status,
+            Image = producto2.Image,
+            TempBarValue = producto2.TempBarValue,
+            User_RID = producto2.User_RID
+        };
+        Anuncio anuncio3 = new Anuncio
+        {
+            AnuncioId = 03,
+            Estado = "Vendido",
+            FrameColor = Color.FromHex("#d5f1d8"),
+            ProductId = producto3.ProductId,
+            Name = producto3.Name,
+            Description = producto3.Description,
+            Price = producto3.Price,
+            Created = producto3.Created,
+            Category = producto3.Category,
+            Subcategory = producto3.Subcategory,
+            Status = producto3.Status,
+            Image = producto3.Image,
+            TempBarValue = producto3.TempBarValue,
+            User_RID = producto3.User_RID
+        };
+        Anuncio anuncio4 = new Anuncio
+        {
+            AnuncioId = 04,
+            Estado = "En rifa",
+            FrameColor = Color.FromHex("#f6f2d3"),
+            ProductId = producto4.ProductId,
+            Name = producto4.Name,
+            Description = producto4.Description,
+            Price = producto4.Price,
+            Created = producto4.Created,
+            Category = producto4.Category,
+            Subcategory = producto4.Subcategory,
+            Status = producto4.Status,
+            Image = producto4.Image,
+            TempBarValue = producto4.TempBarValue,
+            User_RID = producto4.User_RID
+        };
+        Anuncio anuncio5 = new Anuncio
+        {
+            AnuncioId = 05,
+            Estado = "Sin vender",
+            FrameColor = Color.FromHex("#efd6d6"),
+            ProductId = producto5.ProductId,
+            Name = producto5.Name,
+            Description = producto5.Description,
+            Price = producto5.Price,
+            Created = producto5.Created,
+            Category = producto5.Category,
+            Subcategory = producto5.Subcategory,
+            Status = producto5.Status,
+            Image = producto5.Image,
+            TempBarValue = producto5.TempBarValue,
+            User_RID = producto5.User_RID
+        };
+        public List<Producto> MountList()
         {
             products.Add(producto1);
             products.Add(producto2);
@@ -184,7 +271,7 @@ namespace WAP2.Services
             products.Add(producto5);
             return products;
         }
-        public List<ParticipationItemViewModel> participationList()
+        public List<ParticipationItemViewModel> ParticipationList()
         {
             participations.Add(participacion1);
             participations.Add(participacion2);
@@ -192,6 +279,15 @@ namespace WAP2.Services
             participations.Add(participacion4);
             participations.Add(participacion5);
             return participations;
+        }
+        public List<Anuncio> AnuncioList()
+        {
+            anuncios.Add(anuncio1);
+            anuncios.Add(anuncio2);
+            anuncios.Add(anuncio3);
+            anuncios.Add(anuncio4);
+            anuncios.Add(anuncio5);
+            return anuncios;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace WAP2.Views
             productService = new ProductService();
 
             pickerService = new PickerService();
-            ProductTemplate.ItemsSource = productService.mountList();
+            ProductTemplate.ItemsSource = productService.MountList();
 
             //PickerCategoria.ItemsSource = pickerService.categoryPickerList();
 

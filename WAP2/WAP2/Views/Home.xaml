@@ -339,7 +339,7 @@
                          Margin="0,0,0,10"
                          TextColorSelected="{StaticResource PrimaryColor}">
             <xct:TabViewItem.Content>
-                <StackLayout Padding="15"
+                <StackLayout Padding="30"
                              BindingContext="{Binding Buscador, Source={StaticResource Locator}}">
                     <StackLayout>
                         <Grid>

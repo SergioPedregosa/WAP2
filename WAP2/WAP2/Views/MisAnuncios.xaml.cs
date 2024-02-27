@@ -1,20 +1,17 @@
-﻿using WAP2.Models;
-using WAP2.Services;
+﻿using WAP2.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WAP2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MisPedidos : ContentPage
+    public partial class MisAnuncios : ContentPage
     {
         ProductService productService = new ProductService();
-        public MisPedidos()
+        public MisAnuncios()
         {
             InitializeComponent();
-            PedidosTemplate.ItemsSource = productService.ParticipationList();
-            
+            AnunciosTemplate.ItemsSource = productService.AnuncioList();
         }
-        
     }
 }

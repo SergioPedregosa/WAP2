@@ -38,7 +38,7 @@ namespace WAP2.Views
 
             pickerService = new PickerService();
 
-            productoList = productService.mountList();
+            productoList = productService.MountList();
             ProductTemplate.ItemsSource = productoList;
             favoritesTemplate.ItemsSource = productoList;
         }
@@ -76,6 +76,7 @@ namespace WAP2.Views
 
         private void navToMisAnuncios(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new MisAnuncios());
         }
         //Provisional
         private void navToBuscador(object sender, EventArgs e)

@@ -369,6 +369,100 @@
                     </Frame>
                 </StackLayout>
             </DataTemplate>
+            <DataTemplate x:Key="AnunciosTemplate">
+                <StackLayout>
+                    <Frame CornerRadius="20"
+                BackgroundColor="{Binding FrameColor}"
+                Padding="10"
+                HasShadow="False">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="15"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="10"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!-- Cambiar por ImageFullPath cuando se restablezca Azure        IMPORTANTE -->
+                            <Frame Grid.Row="1" 
+                        CornerRadius="15"
+                        BackgroundColor="Transparent"
+                        Grid.RowSpan="3"
+                        Padding="0">
+                                <Image Source="{Binding Image}"
+                            HeightRequest="75"
+                            WidthRequest="75">
+
+                                </Image>
+                            </Frame>
+                            <Label Text="{Binding Name}"
+                        Style="{StaticResource BaseLabel}"
+                        FontSize="Subtitle"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2">
+
+                            </Label>
+                            <Label Style="{StaticResource SubLabel}"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        TextColor="Gray"
+                        FontSize="12">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Comprado: "
+                                   x:Name="EstadoPedido">
+
+                                        </Span>
+                                        <Span Text="{Binding Created}">
+
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <ProgressBar x:Name="ProgresParticipacion"
+                      Progress="0.8"
+                      Grid.Column="1"
+                      Grid.Row="2">
+
+                            </ProgressBar>
+                            <Label Text="El producto lleva 188 de 201 Eur"
+                        Style="{StaticResource BaseLabel}"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        FontSize="9">
+
+                            </Label>
+                            <Frame BackgroundColor="Black"
+                                   CornerRadius="20"
+                                   Grid.Column="2"
+                                   Grid.Row="3"
+                                   Grid.RowSpan="2"
+                                   Padding="5,3,5,3"
+                                   x:Name="FrameRifa"
+                                   WidthRequest="75">
+                                <!-- TODO: AÑADIR ESTADOS DE PARTICIPACION -->
+                                <Label Text="{Binding Estado}"
+                                       TextColor="White"
+                                       x:Name="EstadoRifa"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="13">
+
+                                </Label>
+                            </Frame>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DetailsParticipationCommand}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
             <DataTemplate x:Key="FavoritesDataTemplate">
                 <StackLayout>
                     <Frame BackgroundColor="LightGray"

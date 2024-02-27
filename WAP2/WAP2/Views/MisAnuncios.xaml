@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WAP2.Views.MisAnuncios">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Mis Anuncios"
+           Style="{StaticResource BaseLabel}"
+           FontSize="Title"
+           HorizontalTextAlignment="Center"
+           Margin="0,0,0,10">
+
+            </Label>
+            <CollectionView x:Name="AnunciosTemplate"
+                    ItemTemplate="{StaticResource AnunciosTemplate}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                             Span="1"
+                             VerticalItemSpacing="6"
+                             HorizontalItemSpacing="10">
+
+                    </GridItemsLayout>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
