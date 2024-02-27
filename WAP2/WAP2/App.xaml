@@ -369,6 +369,106 @@
                     </Frame>
                 </StackLayout>
             </DataTemplate>
+            <DataTemplate x:Key="FavoritesDataTemplate">
+                <StackLayout>
+                    <Frame BackgroundColor="LightGray"
+                           CornerRadius="15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Frame Grid.Row="0" 
+                                   CornerRadius="15"
+                                   BackgroundColor="Transparent"
+                                   Grid.RowSpan="4"
+                                   Padding="0">
+                                <Image Source="{Binding Image}"
+                                       HeightRequest="75"
+                                       WidthRequest="75">
+
+                                </Image>
+                            </Frame>
+                            <Label Text="{Binding Name}"
+                                   FontSize="Title"
+                                   Grid.Column="1">
+
+                            </Label>
+                            <Label FontSize="10"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Subido ">
+
+                                        </Span>
+                                        <Span Text="{Binding Created}">
+
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <ProgressBar Progress="0.8"
+                                         Grid.Column="1"
+                                         Grid.Row="2">
+
+                            </ProgressBar>
+                            <Label Grid.Column="1"
+                                   Grid.Row="3"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="Micro">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="El producto lleva ">
+
+                                        </Span>
+                                        <!-- TODO: Progreso precio -->
+                                        <Span Text="188">
+
+                                        </Span>
+                                        <Span Text=" de ">
+
+                                        </Span>
+                                        <!-- TODO: Total precio -->
+                                        <Span Text="201">
+
+                                        </Span>
+                                        <Span Text=" Eur">
+
+                                        </Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Frame BackgroundColor="White"
+                                   CornerRadius="50"
+                                   Padding="0"
+                                   Grid.Column="2"
+                                   Grid.RowSpan="2"
+                                   HeightRequest="40"
+                                   WidthRequest="40">
+                                <Button Text="{StaticResource fav}"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="Solid"
+                                        TextColor="{StaticResource PrimaryColor}"
+                                        FontSize="Title">
+                                    
+                                </Button>
+                            </Frame>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DetailsProductoCommand}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
             <!-- App Colors -->
             <Color x:Key="BackgroundColor">White</Color>
             <Color x:Key="BackgroundColorDark">Black</Color>
@@ -386,6 +486,7 @@
             <Color x:Key="Perdida">#efd6d6</Color>
             <Color x:Key="favColor">#f1d3d9</Color>
             <Color x:Key="productMarginColor">#efe0e7</Color>
+            <Color x:Key="tabColor">#3c3c3c</Color>
 
             <!-- Styles -->
             <Style x:Key="BaseBackground" TargetType="ContentPage">
@@ -498,7 +599,7 @@
             <x:String x:Key="clothing">&#xf553; Ropa</x:String>
             <x:String x:Key="kids">&#xf1ae; Niños</x:String>
             <x:String x:Key="entretainment">&#xf26c; Entretenimiento</x:String>
-            <x:String x:Key="home">&#xf015; Casa</x:String>
+            <x:String x:Key="home">&#xf015;</x:String>
             <x:String x:Key="pets">&#xf1b0; Mascotas</x:String>
             <x:String x:Key="tecno">&#xf025; Tecnólogia</x:String>
             <x:String x:Key="price">&#xf02b;</x:String>
@@ -507,7 +608,7 @@
             <x:String x:Key="fav">&#xf004;</x:String>
             <x:String x:Key="chart">&#xf080;</x:String>
             <x:String x:Key="location">&#xf3c5;</x:String>
-            <x:String x:Key="plus">&#x2b;</x:String>
+            <x:String x:Key="plus">&#xf055;</x:String>
             <x:String x:Key="arrow">&#xf061;</x:String>
             <x:String x:Key="charge">&#xf788;</x:String>
             <x:String x:Key="withdraw">&#xf19c;</x:String>

@@ -11,7 +11,9 @@ namespace WAP2.iOS
             // you can specify it here.
             UIApplication.Main(args, null, typeof(AppDelegate));
             Xamarin.Forms.Forms.Init();
-            //Sharpnado.Tabs.iOS.Preserver.Preserve();
+            //Sharpnado
+            Sharpnado.Tabs.iOS.Preserver.Preserve();
+
         }
     }
 }

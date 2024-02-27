@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sharpnado.Shades.UWP;
+using Sharpnado.Tabs.Uwp;
+using System;
 using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -22,6 +24,7 @@ namespace WAP2.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
         }
 
         /// <summary>
@@ -37,7 +40,13 @@ namespace WAP2.UWP
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-
+            var rendererAssemblies = new[]
+            {
+                typeof(UWPShadowsRenderer).GetTypeInfo().Assembly,
+                typeof(UwpTintableImageEffect).GetTypeInfo().Assembly,
+            };
+            Xamarin.Forms.Forms.Init(e, rendererAssemblies);
+            
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
