@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using WAP2.Models;
 using WAP2.Services;
 
 namespace WAP2.ViewModels
@@ -14,7 +15,9 @@ namespace WAP2.ViewModels
         #endregion
         #region Properties
         public ObservableCollection<ParticipationItemViewModel> Participations { get; set;}
+        public ObservableCollection<AnunciosViewModel> Anuncios { get; set;}
         public DetailsParticipationViewModel DetailsParticipations { get; set;}
+        public DetailsAnuncioViewModel DetailsAnuncios { get; set; }
         public bool IsRefreshing
         {
             set
@@ -45,6 +48,7 @@ namespace WAP2.ViewModels
 
             //ViewModels
             Participations = new ObservableCollection<ParticipationItemViewModel>();
+            Anuncios = new ObservableCollection<AnunciosViewModel>();
         }
         #endregion
         #region Methods

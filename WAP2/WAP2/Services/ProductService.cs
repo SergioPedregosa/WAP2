@@ -14,7 +14,7 @@ namespace WAP2.Services
         List<ObservableCollection<ProductItemViewModel>> productsObservable = new List<ObservableCollection<ProductItemViewModel>>();
         List<Producto> products = new List<Producto>();
         List<ParticipationItemViewModel> participations = new List<ParticipationItemViewModel>();
-        List<Anuncio> anuncios = new List<Anuncio>();
+        List<AnunciosViewModel> anuncios = new List<AnunciosViewModel>();
         static ProductItemViewModel producto1 = new ProductItemViewModel
         {
             ProductId = 1,
@@ -177,7 +177,7 @@ namespace WAP2.Services
             User_RID = producto5.User_RID
         };
         //SIMULACION ANUNCIOS
-        Anuncio anuncio1 = new Anuncio
+        AnunciosViewModel anuncio1 = new AnunciosViewModel
         {
             AnuncioId = 01,
             Estado = "Sin empezar",
@@ -194,7 +194,7 @@ namespace WAP2.Services
             TempBarValue = producto1.TempBarValue,
             User_RID = producto1.User_RID
         };
-        Anuncio anuncio2 = new Anuncio
+        AnunciosViewModel anuncio2 = new AnunciosViewModel
         {
             AnuncioId = 02,
             Estado = "En curso",
@@ -211,7 +211,7 @@ namespace WAP2.Services
             TempBarValue = producto2.TempBarValue,
             User_RID = producto2.User_RID
         };
-        Anuncio anuncio3 = new Anuncio
+        AnunciosViewModel anuncio3 = new AnunciosViewModel
         {
             AnuncioId = 03,
             Estado = "Vendido",
@@ -228,7 +228,7 @@ namespace WAP2.Services
             TempBarValue = producto3.TempBarValue,
             User_RID = producto3.User_RID
         };
-        Anuncio anuncio4 = new Anuncio
+        AnunciosViewModel anuncio4 = new AnunciosViewModel
         {
             AnuncioId = 04,
             Estado = "En rifa",
@@ -245,7 +245,7 @@ namespace WAP2.Services
             TempBarValue = producto4.TempBarValue,
             User_RID = producto4.User_RID
         };
-        Anuncio anuncio5 = new Anuncio
+        AnunciosViewModel anuncio5 = new AnunciosViewModel
         {
             AnuncioId = 05,
             Estado = "Sin vender",
@@ -280,7 +280,7 @@ namespace WAP2.Services
             participations.Add(participacion5);
             return participations;
         }
-        public List<Anuncio> AnuncioList()
+        public List<AnunciosViewModel> AnuncioList()
         {
             anuncios.Add(anuncio1);
             anuncios.Add(anuncio2);

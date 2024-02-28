@@ -12,14 +12,15 @@
 
             </Label>
             <CollectionView x:Name="AnunciosTemplate"
-                    ItemTemplate="{StaticResource AnunciosTemplate}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center">
+                            BindingContext="{Binding Pedidos, Source={StaticResource Locator}}"
+                            ItemTemplate="{StaticResource AnunciosTemplate}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
-                             Span="1"
-                             VerticalItemSpacing="6"
-                             HorizontalItemSpacing="10">
+                                     Span="1"
+                                     VerticalItemSpacing="6"
+                                     HorizontalItemSpacing="10">
 
                     </GridItemsLayout>
                 </CollectionView.ItemsLayout>

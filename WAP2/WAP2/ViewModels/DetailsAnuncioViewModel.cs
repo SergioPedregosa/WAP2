@@ -4,7 +4,7 @@ using WAP2.Services;
 
 namespace WAP2.ViewModels
 {
-    public class DetailsParticipationViewModel : Participacion, INotifyPropertyChanged
+    public class DetailsAnuncioViewModel : Anuncio, INotifyPropertyChanged
     {
         #region Attributes
         private DialogService dialogService;
@@ -79,28 +79,27 @@ namespace WAP2.ViewModels
         }
         #endregion
         #region Constructors
-        public DetailsParticipationViewModel(Participacion participacion)
+        public DetailsAnuncioViewModel(Anuncio anuncio)
         {
             dialogService = new DialogService();
             apiService = new ApiService();
             navigationService = new NavigationService();
 
-            ProductId = participacion.ProductId;
-            Name = participacion.Name;
-            Description = participacion.Description;
-            Price = participacion.Price;
-            Status = participacion.Status;
-            Created = participacion.Created;
-            Image = participacion.Image;
-            TempBarValue = participacion.TempBarValue;
-            User_RID = participacion.User_RID;
-            FrameColor = participacion.FrameColor;
-            ParticipacionId = participacion.ParticipacionId;
-            NumeroParticipaciones = participacion.NumeroParticipaciones;
-            Estado = participacion.Estado;
+            ProductId = anuncio.ProductId;
+            Name = anuncio.Name;
+            Description = anuncio.Description;
+            Price = anuncio.Price;
+            Status = anuncio.Status;
+            Created = anuncio.Created;
+            Image = anuncio.Image;
+            TempBarValue = anuncio.TempBarValue;
+            User_RID = anuncio.User_RID;
+            FrameColor = anuncio.FrameColor;
+            AnuncioId = anuncio.AnuncioId;
+            Estado = anuncio.Estado;
 
-            currentProgressValue = TempBarValue;
-            totalProgressValue = (int)participacion.Price;
+            currentProgressValue = anuncio.TempBarValue;
+            totalProgressValue = (int)anuncio.Price;
             progressValue = (double)currentProgressValue / totalProgressValue;
 
             IsEnabled = true;

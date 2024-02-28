@@ -40,6 +40,12 @@ namespace WAP2.Services
             pedidosViewModel.DetailsParticipations = new DetailsParticipationViewModel(participacion);
             await App.Current.MainPage.Navigation.PushAsync(new DetailsParticipations());
         }
+        public async Task DetailsAnuncio(Anuncio anuncio)
+        {
+            var pedidosViewModel = PedidosViewModel.GetInstance();
+            pedidosViewModel.DetailsAnuncios = new DetailsAnuncioViewModel(anuncio);
+            await App.Current.MainPage.Navigation.PushAsync(new DetailsAnuncio());
+        }
         public async Task Back()
         {
             await App.Current.MainPage.Navigation.PopAsync();
