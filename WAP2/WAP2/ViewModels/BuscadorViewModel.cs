@@ -57,6 +57,7 @@ namespace WAP2.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         #region Methods
+        //Cargar productos de la base de datos
         private async void LoadProducts()
         {
             var respose = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
@@ -68,6 +69,7 @@ namespace WAP2.ViewModels
             FilterProducts((List<Producto>)respose.Result, palabraClave, categoria, subcategoria);
 
         }
+        //Filtrar productos por categoria
         public void FilterProducts(List<Producto> productos, string palabraClave, string categoria, string subcategoria)
         {
             Products.Clear();
@@ -92,12 +94,14 @@ namespace WAP2.ViewModels
             }
 
         }
+        //Obtener los datos para poder filtrar
         public void ObtenerDatos(string palabraClave, string categoria, string subcategoria)
         {
             this.palabraClave = palabraClave;
             this.categoria = categoria;
             this.subcategoria = subcategoria;
         }
+        //Cuenta la cantidad de productos mostrados por el filtro
         public string ProductsCount()
         {
             return productCount.ToString();

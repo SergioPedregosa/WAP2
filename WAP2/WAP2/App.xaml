@@ -430,11 +430,11 @@
 
                             </ProgressBar>
                             <Label Text="El producto lleva 188 de 201 Eur"
-                        Style="{StaticResource BaseLabel}"
-                        Grid.Column="1"
-                        Grid.Row="3"
-                        Grid.ColumnSpan="2"
-                        FontSize="9">
+                                   Style="{StaticResource BaseLabel}"
+                                   Grid.Column="1"
+                                   Grid.Row="3"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="9">
 
                             </Label>
                             <Frame BackgroundColor="Black"

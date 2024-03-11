@@ -21,7 +21,6 @@ namespace WAP2.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
 
-
             LoadApplication(new App());
             App.UIParent = this;
         }

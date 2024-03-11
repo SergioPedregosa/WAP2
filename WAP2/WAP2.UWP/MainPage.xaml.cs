@@ -22,6 +22,7 @@ namespace WAP2.UWP
             this.InitializeComponent();
 
             LoadApplication(new WAP2.App());
+
         }
     }
 }

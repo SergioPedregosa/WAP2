@@ -154,6 +154,7 @@ namespace WAP2.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         #region Methods
+        //Cargar direcciones de la base de datos
         private async void LoadAddresses()
         {
             var response = await apiService.Get<Address>("https://wapback.azurewebsites.net", "/api", "/Addresses");
@@ -163,6 +164,7 @@ namespace WAP2.ViewModels
             }
             FilterAddresses((List<Address>)response.Result, UserRID);
         }
+        //Filtrar pdirecciones del usuario
         private void FilterAddresses(List<Address> listAddresses, string UserID)
         {
             addresses.Clear();
@@ -182,6 +184,7 @@ namespace WAP2.ViewModels
             }
             RefreshAddresses();
         }
+        //Cargar direcciones
         public void Load()
         {
             LoadAddresses();

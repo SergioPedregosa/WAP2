@@ -56,6 +56,7 @@ namespace WAP2.ViewModels
         #endregion
 
         #region Methods
+        //Carga los productos de la base de datos
         private async void LoadProducts()
         {
             var response = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
@@ -66,7 +67,7 @@ namespace WAP2.ViewModels
             }
             ReloadProducts((List<Producto>)response.Result);
         }
-
+        //Refresca los productos
         private void ReloadProducts(List<Producto> productos)
         {
             Products.Clear();

@@ -177,7 +177,7 @@ namespace WAP2.ViewModels
 
         #endregion
         #region Commands
-
+        //Comando para tomar fotos
         public ICommand TakePictureCommand { get { return new RelayCommand(TakePicture); } }
         private async void TakePicture()
         {
@@ -219,7 +219,7 @@ namespace WAP2.ViewModels
 
             IsRunning = false;
         }
-
+        //Añadir producto
         public ICommand AddProductCommand { get { return new RelayCommand(NewProducto); } }
         private async void NewProducto()
         {

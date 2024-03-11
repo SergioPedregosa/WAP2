@@ -144,7 +144,7 @@ namespace WAP2.Services
         {
             ParticipacionId = 04,
             NumeroParticipaciones = 5,
-            Estado = "En Rifa",
+            Estado = "En rifa",
             FrameColor = Color.FromHex("#f6f2d3"),
             ProductId = producto4.ProductId,
             Name = producto4.Name,

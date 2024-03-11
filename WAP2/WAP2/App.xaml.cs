@@ -16,9 +16,6 @@ namespace WAP2
         {
             InitializeComponent();
 
-            //Sharpnado Tabs
-            Sharpnado.Tabs.Initializer.Initialize(false, false);
-
             AuthenticationClient = PublicClientApplicationBuilder
                 .Create(Constants.ClientId)
                 .WithIosKeychainSecurityGroup(Constants.IosKeychainSecurityGroups)

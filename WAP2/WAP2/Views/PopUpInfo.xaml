@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           x:Class="WAP2.Views.PopUpInfo"
+           Size="400,300">
+    <StackLayout BackgroundColor="{StaticResource productMarginColor}"
+                 Padding="20">
+        <Label Text="Necesitas saber..."
+               FontAttributes="Bold"
+               FontSize="Subtitle">
+
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="La venta está ">
+                        
+                    </Span>
+                    <Span Text="Estado"
+                          x:Name="textEstado"
+                          FontAttributes="Bold">
+                        
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label Text="Mensaje"
+               x:Name="textMessage">
+            
+        </Label>
+        <Label Text="'sabías que 1% le cae un rayo...'">
+            
+        </Label>
+        <Label Text="¡Que la suerte te acompañe!"
+               FontAttributes="Bold">
+            
+        </Label>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Terminos y condiciones ">
+                        
+                    </Span>
+                    <Span Text="aquí"
+                          TextDecorations="Underline"
+                          TextColor="Blue">
+                        
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+</xct:Popup>

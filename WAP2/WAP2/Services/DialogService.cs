@@ -15,6 +15,7 @@ namespace WAP2.Services
         {
             return await App.Current.MainPage.DisplayAlert(title, message, "Si", "No");
         }
+        //Deja seleccionar si se quiere hacer una foto o seleccionar una de la galeria
         public async Task<bool> SelectOptionPhoto(string title, string message)
         {
             return await App.Current.MainPage.DisplayAlert(title, message, "Hacer una foto", "Seleccionar de la galeria");

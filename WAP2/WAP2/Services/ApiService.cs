@@ -10,6 +10,7 @@ namespace WAP2.Services
 {
     public class ApiService
     {
+        //Recibe una lista de todos los productos de la Base de datos
         public async Task<Response> Get<T>(string urlBase, string servicePrefix, string controller)
         {
             try
@@ -46,6 +47,7 @@ namespace WAP2.Services
                 };
             }
         }
+        //Sube un producto a la base de datos
         public async Task<Response> Post<T>(string urlBase, string servicePrefix, string controller, T model)
         {
             try
@@ -85,6 +87,7 @@ namespace WAP2.Services
                 };
             }
         }
+        //Actualiza un producto de la base de datos
         public async Task<Response> Put<T>(string urlBase, string servicePrefix, string controller, T model)
         {
             try
@@ -122,6 +125,7 @@ namespace WAP2.Services
                 };
             }
         }
+        //Elimina un producto de la base de datos
         public async Task<Response> Delete<T>(string urlBase, string servicePrefix, string controller, T model)
         {
             try

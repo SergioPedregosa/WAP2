@@ -1,7 +1,4 @@
-﻿using Sharpnado.Shades.UWP;
-using Sharpnado.Tabs.Uwp;
-using System;
-using System.Reflection;
+﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -40,12 +37,6 @@ namespace WAP2.UWP
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-            var rendererAssemblies = new[]
-            {
-                typeof(UWPShadowsRenderer).GetTypeInfo().Assembly,
-                typeof(UwpTintableImageEffect).GetTypeInfo().Assembly,
-            };
-            Xamarin.Forms.Forms.Init(e, rendererAssemblies);
             
             Frame rootFrame = Window.Current.Content as Frame;
 
