@@ -8,7 +8,7 @@ namespace WAP2.Models
         {
 
         }
-        public Producto(int ProductId, string Name, string Description, decimal Price, int Tokens, int PriceToken, DateTime Created, string Category, string Status, string image, int TempBarValue, string User_RID)
+        public Producto(int ProductId, string Name, string Description, decimal Price, DateTime Created, string Category, string Status, string image, int TempBarValue, string User_RID)
         {
             this.ProductId = ProductId;
             this.Name = Name;
@@ -20,6 +20,16 @@ namespace WAP2.Models
             Image = image;
             this.TempBarValue = TempBarValue;
             this.User_RID = User_RID;
+        }
+        //Constructor sin imagen para test en Firebase
+        public Producto(string Name, string Description, decimal Price, DateTime Created, string Category, string Status)
+        {
+            this.Name = Name;
+            this.Description = Description;
+            this.Price = Price;
+            this.Created = Created;
+            this.Category = Category;
+            this.Status = Status;
         }
         public int ProductId { get; set; }
         public string Name { get; set; }

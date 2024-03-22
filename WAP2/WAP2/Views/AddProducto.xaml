@@ -26,21 +26,24 @@
                Padding="15,0,15,0"
                CornerRadius="10">
                     <controls:BorderlessEntry Style="{StaticResource entryStyle}"
-                                  x:Name="entryTitulo">
+                                              x:Name="entryTitulo"
+                                              Text="{Binding Name}">
 
                     </controls:BorderlessEntry>
                 </Frame>
                 <!-- Categoría -->
                 <Label Text="Categoría:"
-               Style="{StaticResource BaseLabel}">
+                       Style="{StaticResource BaseLabel}">
 
                 </Label>
                 <Frame Style="{StaticResource BaseCard}"
                Padding="15,0,15,0"
                CornerRadius="10">
                     <controls:CustomPicker Style="{StaticResource entryStyle}"
-                                   x:Name="PickerCategoria"
-                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+                                           x:Name="PickerCategoria"
+                                           Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}"
+                                           SelectedIndexChanged="PickerCategoria_SelectedIndexChanged"
+                                           SelectedItem="{Binding Category}">
 
                     </controls:CustomPicker>
                 </Frame>
@@ -50,11 +53,12 @@
 
                 </Label>
                 <Frame Style="{StaticResource BaseCard}"
-               Padding="15,0,15,0"
-               CornerRadius="10">
+                       Padding="15,0,15,0"
+                       CornerRadius="10">
                     <controls:CustomPicker Style="{StaticResource entryStyle}"
                                    x:Name="PickerSubcategoria"
-                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}"
+                                           SelectedItem="{Binding Subcategory}">
 
                     </controls:CustomPicker>
                 </Frame>
@@ -68,7 +72,8 @@
                CornerRadius="10">
                     <controls:CustomPicker Style="{StaticResource entryStyle}"
                                    x:Name="PickerEstado"
-                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}">
+                                   Image="{AppThemeBinding Dark=arrow_downDark.png, Light=arrow_downLight.png}"
+                                           SelectedItem="{Binding Status}">
 
                     </controls:CustomPicker>
                 </Frame>
@@ -83,16 +88,16 @@
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Text="Año:"
-                   Style="{StaticResource BaseLabel}">
+                           Style="{StaticResource BaseLabel}">
 
                     </Label>
                     <Frame Style="{StaticResource BaseCard}"
-                   Padding="15,0,15,0"
-                   CornerRadius="10"
-                   Grid.Row="1">
+                           Padding="15,0,15,0"
+                           CornerRadius="10"
+                           Grid.Row="1">
                         <controls:BorderlessEntry Style="{StaticResource entryStyle}"
-                                          x:Name="entryAño"
-                                          Keyboard="Numeric">
+                                                  x:Name="entryAño"
+                                                  Keyboard="Numeric">
 
                         </controls:BorderlessEntry>
                     </Frame>
@@ -112,8 +117,9 @@
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <controls:BorderlessEntry Style="{StaticResource entryStyle}"
-                                              x:Name="entryPrecio"
-                                              Keyboard="Numeric">
+                                                      x:Name="entryPrecio"
+                                                      Keyboard="Numeric"
+                                                      Text="{Binding Price}">
 
                             </controls:BorderlessEntry>
                             <Label Text="€"
@@ -137,8 +143,9 @@
                Padding="15,0,15,0"
                CornerRadius="10">
                     <Editor Style="{StaticResource entryStyle}"
-                                   x:Name="entryDescripcion"
-                                   HeightRequest="100">
+                            x:Name="entryDescripcion"
+                            HeightRequest="100"
+                            Text="{Binding Description}">
 
                     </Editor>
                 </Frame>
@@ -161,10 +168,10 @@
                    Padding="15"
                    CornerRadius="10">
                         <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       WidthRequest="100"
-                       HeightRequest="45">
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="100"
+                               HeightRequest="45">
 
                         </Image>
                     </Frame>
@@ -233,8 +240,9 @@
                 </Grid>
                 <!--Botón subir -->
                 <Button Text="Subir"
-                Margin="0,15,0,0"
-                Style="{StaticResource BaseButton}">
+                        Margin="0,15,0,0"
+                        Style="{StaticResource BaseButton}"
+                        Command="{Binding AddProductCommand}">
 
                 </Button>
             </StackLayout>

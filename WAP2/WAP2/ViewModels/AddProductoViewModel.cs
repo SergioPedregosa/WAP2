@@ -8,6 +8,7 @@ using WAP2.Models;
 using WAP2.Helpers;
 using WAP2.Services;
 using Xamarin.Forms;
+using WAP2.Resources.Repositories;
 
 namespace WAP2.ViewModels
 {
@@ -17,6 +18,7 @@ namespace WAP2.ViewModels
         private DialogService dialogService;
         private ApiService apiService;
         private NavigationService navigationService;
+        private ProductRepository productRepository = new ProductRepository();
         private string name;
         private string description;
         private decimal price;
@@ -225,7 +227,7 @@ namespace WAP2.ViewModels
         {
             if (string.IsNullOrEmpty(Name))
             {
-                await dialogService.ShowMessage("Error", "Introduce el nombre del producrto");
+                await dialogService.ShowMessage("Error", "Introduce el nombre del producto");
                 return;
             }
             if (Price <= 0)
@@ -240,8 +242,8 @@ namespace WAP2.ViewModels
                 return;
             }
 
-            var imageArray = FilesHelper.ReadFully(file.GetStream());
-            file.Dispose();
+            //var imageArray = FilesHelper.ReadFully(file.GetStream());
+            //file.Dispose();
 
             //Eliminar TempBarValue al implementar correctamente las participaciones --------------------------------------------------
 
@@ -254,27 +256,31 @@ namespace WAP2.ViewModels
                 Category = Category,
                 Subcategory = Subcategory,
                 Status = Status,
-                TempBarValue = 0,
-                ImageArray = imageArray,
-                User_RID = User_RID
+                //TempBarValue = 0,
+                //Descomentar cuando se arreglen las fotos
+                //ImageArray = imageArray,
+                //User_RID = User_RID
 
             };
 
             IsRunning = true;
             IsEnabled = false;
 
-            var response = await apiService.Post("https://wapback.azurewebsites.net", "/api", "/Products", product);
+            //Comando Azure
+            //var response = await apiService.Post("https://wapback.azurewebsites.net", "/api", "/Products", product);
+            //Comando Firebase
+            var response = await productRepository.Save(product);
 
             isRunning = false;
             isEnabled = true;
 
-            if (!response.IsSuccess)
+            if (!response)
             {
-                await dialogService.ShowMessage("Error", response.Message);
+                await dialogService.ShowMessage("Error", "Fallo al subir producto");
                 return;
             }
 
-            await navigationService.BuyProduct();
+            //await navigationService.BuyProduct();
         }
         #endregion
     }

@@ -4,6 +4,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Microsoft.Identity.Client;
+using Firebase;
 
 namespace WAP2.Droid
 {
