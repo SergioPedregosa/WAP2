@@ -1,5 +1,7 @@
 ﻿using Firebase.Database;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WAP2.Models;
 
@@ -18,6 +20,24 @@ namespace WAP2.Resources.Repositories
                 return true;
             }
             return false;
+        }
+        
+        public async Task<List<Producto>> GetAll()
+        {
+            return (List<Producto>)(await firebaseClient.Child(nameof(Producto)).OnceAsync<Producto>()).Select(item => new Producto
+            {
+                ProductId = item.Key,
+                Name = item.Object.Name,
+                Description = item.Object.Description,
+                Price = item.Object.Price,
+                Created = item.Object.Created,
+                Category = item.Object.Category,
+                Subcategory = item.Object.Subcategory,
+                Status = item.Object.Status,
+                Image = item.Object.Image,
+                TempBarValue = item.Object.TempBarValue,
+                User_RID = item.Object.User_RID
+            }).ToList();
         }
     }
 }

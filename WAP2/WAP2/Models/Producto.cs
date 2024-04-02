@@ -8,7 +8,7 @@ namespace WAP2.Models
         {
 
         }
-        public Producto(int ProductId, string Name, string Description, decimal Price, DateTime Created, string Category, string Status, string image, int TempBarValue, string User_RID)
+        public Producto(string ProductId, string Name, string Description, decimal Price, DateTime Created, string Category, string Status, string image, int TempBarValue, string User_RID)
         {
             this.ProductId = ProductId;
             this.Name = Name;
@@ -31,7 +31,7 @@ namespace WAP2.Models
             this.Category = Category;
             this.Status = Status;
         }
-        public int ProductId { get; set; }
+        public string ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -56,9 +56,6 @@ namespace WAP2.Models
         }
         public int TempBarValue { get; set; }
 
-        public override int GetHashCode()
-        {
-            return ProductId;
-        }
+        
     }
 }

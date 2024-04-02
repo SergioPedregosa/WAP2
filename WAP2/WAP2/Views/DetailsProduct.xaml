@@ -181,11 +181,28 @@
                              x:Name="progressDetails">
 
                         </ProgressBar>
-                        <Label Text="El producto lleva 186 de 201 Eur"
-                       x:Name="PriceDetails"
-                       Style="{StaticResource BaseLabel}"
-                       HorizontalTextAlignment="Center">
-
+                        <Label x:Name="PriceDetails"
+                               Style="{StaticResource BaseLabel}"
+                               HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="El producto lleva ">
+                                        
+                                    </Span>
+                                    <Span Text="0">
+                                        
+                                    </Span>
+                                    <Span Text=" de ">
+                                        
+                                    </Span>
+                                    <Span Text="{Binding Price}">
+                                        
+                                    </Span>
+                                    <Span Text=" EUR">
+                                        
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
                         </Label>
 
                     </StackLayout>

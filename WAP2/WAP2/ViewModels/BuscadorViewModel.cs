@@ -1,10 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using WAP2.Models;
+using WAP2.Resources.Repositories;
 using WAP2.Services;
 
 namespace WAP2.ViewModels
@@ -15,6 +17,7 @@ namespace WAP2.ViewModels
         private ApiService apiService;
         private NavigationService navigationService;
         private DialogService dialogService;
+        private ProductRepository productRepository;
         private bool isRefreshing;
         private string palabraClave, categoria, subcategoria;
         private int productCount = 0;
@@ -48,7 +51,7 @@ namespace WAP2.ViewModels
             apiService = new ApiService();
             navigationService = new NavigationService();
             dialogService = new DialogService();
-
+            productRepository = new ProductRepository();
             //ViewModels
             Products = new ObservableCollection<ProductItemViewModel>();
         }
@@ -60,21 +63,30 @@ namespace WAP2.ViewModels
         //Cargar productos de la base de datos
         private async void LoadProducts()
         {
-            var respose = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
+            //Comando Azure
+            /**var respose = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
             if (!respose.IsSuccess)
             {
                 await dialogService.ShowMessage("Error", respose.Message);
                 return;
             }
-            FilterProducts((List<Producto>)respose.Result, palabraClave, categoria, subcategoria);
+            **/
+            //Comando Firebase
+            var response = await productRepository.GetAll();
+            if (response.IsNullOrEmpty())
+            {
+                await dialogService.ShowMessage("Error", "No se han encontrado productos");
+            }
+            FilterProducts(response);
 
         }
         //Filtrar productos por categoria
-        public void FilterProducts(List<Producto> productos, string palabraClave, string categoria, string subcategoria)
+        public void FilterProducts(List<Producto> productos)
         {
             Products.Clear();
             productCount = 0;
-            foreach (var product in productos.Where(w => w.Category == categoria && w.Subcategory == subcategoria))
+            //foreach (var product in productos.Where(w => w.Category == categoria && w.Subcategory == subcategoria))
+            foreach (var product in productos)
             {
                 Products.Add(new ProductItemViewModel
                 {
@@ -105,6 +117,10 @@ namespace WAP2.ViewModels
         public string ProductsCount()
         {
             return productCount.ToString();
+        }
+        public void Load()
+        {
+            LoadProducts();
         }
         #endregion
         #region Command

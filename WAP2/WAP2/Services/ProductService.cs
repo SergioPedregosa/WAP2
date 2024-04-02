@@ -17,7 +17,7 @@ namespace WAP2.Services
         List<AnunciosViewModel> anuncios = new List<AnunciosViewModel>();
         static ProductItemViewModel producto1 = new ProductItemViewModel
         {
-            ProductId = 1,
+            ProductId = "1",
             Name = "Test",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id leo ullamcorper, scelerisque leo eget, pretium diam. Sed gravida fermentum risus, nec varius eros sodales vel. Nam ornare erat leo, eu semper nibh molestie at. Quisque dignissim dapibus neque, ut elementum leo interdum ac. Vestibulum tincidunt massa at est sagittis gravida. Aliquam semper congue metus vitae sollicitudin. Donec volutpat nulla nec ligula posuere, pharetra efficitur nisi vulputate.",
             Price = 50,
@@ -31,7 +31,7 @@ namespace WAP2.Services
         };
         static ProductItemViewModel producto2 = new ProductItemViewModel
         {
-            ProductId = 2,
+            ProductId = "2",
             Name = "Test",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id leo ullamcorper, scelerisque leo eget, pretium diam. Sed gravida fermentum risus, nec varius eros sodales vel. Nam ornare erat leo, eu semper nibh molestie at. Quisque dignissim dapibus neque, ut elementum leo interdum ac. Vestibulum tincidunt massa at est sagittis gravida. Aliquam semper congue metus vitae sollicitudin. Donec volutpat nulla nec ligula posuere, pharetra efficitur nisi vulputate.",
             Price = 50,
@@ -45,7 +45,7 @@ namespace WAP2.Services
         };
         static ProductItemViewModel producto3 = new ProductItemViewModel
         {
-            ProductId = 3,
+            ProductId = "3",
             Name = "Test",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id leo ullamcorper, scelerisque leo eget, pretium diam. Sed gravida fermentum risus, nec varius eros sodales vel. Nam ornare erat leo, eu semper nibh molestie at. Quisque dignissim dapibus neque, ut elementum leo interdum ac. Vestibulum tincidunt massa at est sagittis gravida. Aliquam semper congue metus vitae sollicitudin. Donec volutpat nulla nec ligula posuere, pharetra efficitur nisi vulputate.",
             Price = 50,
@@ -59,7 +59,7 @@ namespace WAP2.Services
         };
         static ProductItemViewModel producto4 = new ProductItemViewModel
         {
-            ProductId = 4,
+            ProductId = "4",
             Name = "Test",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id leo ullamcorper, scelerisque leo eget, pretium diam. Sed gravida fermentum risus, nec varius eros sodales vel. Nam ornare erat leo, eu semper nibh molestie at. Quisque dignissim dapibus neque, ut elementum leo interdum ac. Vestibulum tincidunt massa at est sagittis gravida. Aliquam semper congue metus vitae sollicitudin. Donec volutpat nulla nec ligula posuere, pharetra efficitur nisi vulputate.",
             Price = 50,
@@ -73,7 +73,7 @@ namespace WAP2.Services
         };
         static ProductItemViewModel producto5 = new ProductItemViewModel
         {
-            ProductId = 5,
+            ProductId = "5",
             Name = "Test",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id leo ullamcorper, scelerisque leo eget, pretium diam. Sed gravida fermentum risus, nec varius eros sodales vel. Nam ornare erat leo, eu semper nibh molestie at. Quisque dignissim dapibus neque, ut elementum leo interdum ac. Vestibulum tincidunt massa at est sagittis gravida. Aliquam semper congue metus vitae sollicitudin. Donec volutpat nulla nec ligula posuere, pharetra efficitur nisi vulputate.",
             Price = 50,

@@ -62,11 +62,11 @@
             <!-- Producto -->
             <StackLayout>
                 <CollectionView x:Name="ProductTemplate"
-                        ItemTemplate="{StaticResource PopularProductsTemplate}"
-                        BindingContext="{Binding Buscador, Source={StaticResource Locator}}"
-                        ItemsSource="{Binding Products}"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center">
+                                ItemTemplate="{StaticResource PopularProductsTemplate}"
+                                BindingContext="{Binding Buscador, Source={StaticResource Locator}}"
+                                ItemsSource="{Binding Products}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical"
                                  Span="1"

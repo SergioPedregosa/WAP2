@@ -38,8 +38,9 @@ namespace WAP2.Views
 
             pickerService = new PickerService();
 
+            buscadorViewModel.Load();
             productoList = productService.MountList();
-            ProductTemplate.ItemsSource = productoList;
+            //ProductTemplate.ItemsSource = productoList;
             favoritesTemplate.ItemsSource = productoList;
         }
         #region Home

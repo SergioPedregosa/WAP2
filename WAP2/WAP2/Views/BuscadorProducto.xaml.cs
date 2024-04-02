@@ -14,21 +14,13 @@ namespace WAP2.Views
 	public partial class BuscadorProducto : ContentPage
 	{
         PickerService pickerService;
-        BuscadorViewModel buscadorViewModel;
-        //TEMPORAL
-        ProductService productService;
+        BuscadorViewModel buscadorViewModel = new BuscadorViewModel();
         public BuscadorProducto()
         {
             InitializeComponent();
             buscadorViewModel = BuscadorViewModel.GetInstance();
-            productService = new ProductService();
-
-            pickerService = new PickerService();
-            ProductTemplate.ItemsSource = productService.MountList();
-
-            //PickerCategoria.ItemsSource = pickerService.categoryPickerList();
-
-
+            buscadorViewModel.Load();
+            //ProductTemplate.ItemsSource = buscadorViewModel.Products;
         }
         //Carga una lista de subcategorias al picker de subcategorias en función de la categoria selecionada
         private void PickerCategoria_SelectedIndexChanged(object sender, EventArgs e)
