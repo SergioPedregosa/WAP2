@@ -1,5 +1,4 @@
-﻿using Azure.Identity;
-using Microsoft.Graph;
+﻿using Microsoft.Graph;
 using System;
 using System.Threading.Tasks;
 using WAP2.Services;

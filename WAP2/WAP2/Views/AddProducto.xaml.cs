@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using WAP2.Models;
 using WAP2.Services;
+using WAP2.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -48,6 +49,10 @@ namespace WAP2.Views
 
                 }
             }
+        }
+        private void CambiarFoto1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

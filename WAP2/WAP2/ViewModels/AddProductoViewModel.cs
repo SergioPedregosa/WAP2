@@ -9,6 +9,7 @@ using WAP2.Helpers;
 using WAP2.Services;
 using Xamarin.Forms;
 using WAP2.Resources.Repositories;
+using System.IO;
 
 namespace WAP2.ViewModels
 {
@@ -244,6 +245,7 @@ namespace WAP2.ViewModels
 
             //var imageArray = FilesHelper.ReadFully(file.GetStream());
             //file.Dispose();
+            string image = await productRepository.UploadPhoto(file.GetStream(), Path.GetFileName(file.Path));
 
             //Eliminar TempBarValue al implementar correctamente las participaciones --------------------------------------------------
 
@@ -256,12 +258,14 @@ namespace WAP2.ViewModels
                 Category = Category,
                 Subcategory = Subcategory,
                 Status = Status,
+                Image = image,
+                //ImageArray = imageArray
                 //TempBarValue = 0,
-                //Descomentar cuando se arreglen las fotos
-                //ImageArray = imageArray,
+                
                 //User_RID = User_RID
 
             };
+            
 
             IsRunning = true;
             IsEnabled = false;
@@ -280,7 +284,7 @@ namespace WAP2.ViewModels
                 return;
             }
 
-            //await navigationService.BuyProduct();
+            await navigationService.BuyProduct();
         }
         #endregion
     }

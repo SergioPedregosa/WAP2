@@ -168,11 +168,14 @@
                    Padding="15"
                    CornerRadius="10">
                         <Image Source="{AppThemeBinding Dark=cameraDark.png, Light=cameraLight.png}"
+                               x:Name="Foto1"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"
                                WidthRequest="100"
                                HeightRequest="45">
-
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TakePictureCommand}" Tapped="CambiarFoto1"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
                         </Image>
                     </Frame>
                     <Frame Style="{StaticResource BaseCard}"

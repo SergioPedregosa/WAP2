@@ -52,7 +52,7 @@ namespace WAP2.Services
         }
         public async Task BuyProduct()
         {
-            //await App.Current.MainPage.Navigation.PushAsync(new ProductoSubido());
+            await App.Current.MainPage.Navigation.PushAsync(new Home());
         }
     }
 }

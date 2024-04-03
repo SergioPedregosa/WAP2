@@ -22,7 +22,6 @@
                 </Grid.RowDefinitions>
                 <StackLayout x:Name="Fotos">
                     <!-- Imagenes del producto -->
-                    <!-- CAMBIAR A imageFullPath CUANDO SE VUELVA A RESTAURAR AZURE     IMPORTANTE -->
                     <Image Source="{Binding Image}"
                VerticalOptions="FillAndExpand"
                HorizontalOptions="FillAndExpand"></Image>
