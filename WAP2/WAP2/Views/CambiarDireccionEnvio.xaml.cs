@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using WAP2.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
@@ -17,7 +15,6 @@ namespace WAP2.Views
         public CambiarDireccionEnvio()
         {
             InitializeComponent();
-            GetClaims();
             MyAddress = new Pin()
             {
                 Type = PinType.Place,
@@ -67,21 +64,6 @@ namespace WAP2.Views
                 await DisplayAlert("Error", ex.Message, "Ok");
             }
 
-        }
-        private void GetClaims()
-        {
-            var token = Transporter.authenticationResult.IdToken;
-            if (token != null)
-            {
-                var handler = new JwtSecurityTokenHandler();
-                var data = handler.ReadJwtToken(token);
-                var claims = data.Claims.ToList();
-                if (data != null)
-                {
-                    UserRID.Text = $"{data.Claims.FirstOrDefault(x => x.Type.Equals("oid")).Value}";
-
-                }
-            }
         }
     }
 }

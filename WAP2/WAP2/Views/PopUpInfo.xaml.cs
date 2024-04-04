@@ -1,5 +1,4 @@
-﻿using Microsoft.Graph.Models;
-using Xamarin.CommunityToolkit.UI.Views;
+﻿using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms.Xaml;
 
 namespace WAP2.Views

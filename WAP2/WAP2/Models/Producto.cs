@@ -42,18 +42,6 @@ namespace WAP2.Models
         public string Subcategory { get; set; }
         public string Status { get; set; }
         public string Image { get; set; }
-        public byte[] ImageArray { get; set; }
-        public string ImageFullPath
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Image))
-                {
-                    return "image_placeholder.png";
-                }
-                return string.Format("https://wapback.azurewebsites.net{0}", Image.Substring(1));
-            }
-        }
         public int TempBarValue { get; set; }
 
         

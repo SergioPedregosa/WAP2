@@ -1,7 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using WAP2.Models;
 using WAP2.Services;

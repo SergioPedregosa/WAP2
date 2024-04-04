@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WAP2.Models
+﻿namespace WAP2.Models
 {
     public class Address
     {

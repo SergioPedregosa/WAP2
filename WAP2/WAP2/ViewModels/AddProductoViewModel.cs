@@ -3,13 +3,12 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Input;
 using WAP2.Models;
-using WAP2.Helpers;
+using WAP2.Resources.Repositories;
 using WAP2.Services;
 using Xamarin.Forms;
-using WAP2.Resources.Repositories;
-using System.IO;
 
 namespace WAP2.ViewModels
 {
@@ -17,7 +16,6 @@ namespace WAP2.ViewModels
     {
         #region Attributes
         private DialogService dialogService;
-        private ApiService apiService;
         private NavigationService navigationService;
         private ProductRepository productRepository = new ProductRepository();
         private string name;
@@ -170,7 +168,6 @@ namespace WAP2.ViewModels
         public AddProductoViewModel()
         {
             dialogService = new DialogService();
-            apiService = new ApiService();
             navigationService = new NavigationService();
             IsEnabled = true;
         }
@@ -243,8 +240,6 @@ namespace WAP2.ViewModels
                 return;
             }
 
-            //var imageArray = FilesHelper.ReadFully(file.GetStream());
-            //file.Dispose();
             string image = await productRepository.UploadPhoto(file.GetStream(), Path.GetFileName(file.Path));
 
             //Eliminar TempBarValue al implementar correctamente las participaciones --------------------------------------------------
@@ -259,7 +254,6 @@ namespace WAP2.ViewModels
                 Subcategory = Subcategory,
                 Status = Status,
                 Image = image,
-                //ImageArray = imageArray
                 //TempBarValue = 0,
                 
                 //User_RID = User_RID
@@ -270,9 +264,7 @@ namespace WAP2.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            //Comando Azure
-            //var response = await apiService.Post("https://wapback.azurewebsites.net", "/api", "/Products", product);
-            //Comando Firebase
+            //Comando subir producto a Firebase
             var response = await productRepository.Save(product);
 
             isRunning = false;

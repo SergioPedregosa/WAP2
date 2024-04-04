@@ -11,7 +11,9 @@ namespace WAP2.Resources.Repositories
 {
     public class ProductRepository
     {
+        //Link DDBB
         FirebaseClient firebaseClient = new FirebaseClient("https://wapddbb-default-rtdb.europe-west1.firebasedatabase.app/");
+        //Link Storage
         FirebaseStorage firebaseStorage = new FirebaseStorage("wapddbb.appspot.com");
         public async Task<bool> Save(Producto product)
         {
@@ -23,7 +25,7 @@ namespace WAP2.Resources.Repositories
             }
             return false;
         }
-        
+        //Crea una lista de todos los productos en la base de datos
         public async Task<List<Producto>> GetAll()
         {
             return (List<Producto>)(await firebaseClient.Child(nameof(Producto)).OnceAsync<Producto>()).Select(item => new Producto
@@ -41,7 +43,7 @@ namespace WAP2.Resources.Repositories
                 User_RID = item.Object.User_RID
             }).ToList();
         }
-
+        //Sube una foto y devuelve el enlace a la misma
         public async Task<string>UploadPhoto(Stream img, string fileName)
         {
             var image = await firebaseStorage.Child("Images").Child(fileName).PutAsync(img);

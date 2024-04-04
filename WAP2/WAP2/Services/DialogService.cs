@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace WAP2.Services
 {
     public class DialogService
     {
+        //Muestra un mensaje simple
         public async Task ShowMessage(string title, string message)
         {
             await App.Current.MainPage.DisplayAlert(title, message, "Ok");
         }
+        //Muestra un mensaje con confirmación (Si/No)
         public async Task<bool> ShowConfirm(string title, string message)
         {
             return await App.Current.MainPage.DisplayAlert(title, message, "Si", "No");

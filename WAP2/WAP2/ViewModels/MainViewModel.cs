@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using WAP2.Models;
+using WAP2.Resources.Repositories;
 using WAP2.Services;
 
 namespace WAP2.ViewModels
@@ -11,7 +13,7 @@ namespace WAP2.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         #region Attributes
-        private ApiService apiService;
+        private ProductRepository productRepository;
         private NavigationService navigationService;
         private DialogService dialogService;
         private bool isRefreshing;
@@ -46,7 +48,7 @@ namespace WAP2.ViewModels
             instance = this;
 
             //Services
-            apiService = new ApiService();
+            productRepository = new ProductRepository();
             navigationService = new NavigationService();
             dialogService = new DialogService();
 
@@ -59,13 +61,12 @@ namespace WAP2.ViewModels
         //Carga los productos de la base de datos
         private async void LoadProducts()
         {
-            var response = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
-            if (!response.IsSuccess)
+            var response = await productRepository.GetAll();
+            if (response.IsNullOrEmpty())
             {
-                await dialogService.ShowMessage("Error", response.Message);
-                return;
+                await dialogService.ShowMessage("Error", "No se han encontrado productos");
             }
-            ReloadProducts((List<Producto>)response.Result);
+            ReloadProducts(response);
         }
         //Refresca los productos
         private void ReloadProducts(List<Producto> productos)

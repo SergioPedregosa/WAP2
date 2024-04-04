@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using WAP2.Models;
 using WAP2.Services;
 
 namespace WAP2.ViewModels
@@ -8,7 +7,6 @@ namespace WAP2.ViewModels
     public class PedidosViewModel : INotifyPropertyChanged
 	{
         #region Attributes
-        private ApiService apiService;
         private NavigationService navigationService;
         private DialogService dialogService;
         private bool isRefreshing;
@@ -42,7 +40,6 @@ namespace WAP2.ViewModels
             instance = this;
 
             //Services
-            apiService = new ApiService();
             navigationService = new NavigationService();
             dialogService = new DialogService();
 

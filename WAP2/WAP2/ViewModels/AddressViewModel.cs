@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using WAP2.Models;
 using WAP2.Services;
@@ -15,7 +13,6 @@ namespace WAP2.ViewModels
     {
         #region Attributes
         private DialogService dialogService;
-        private ApiService apiService;
         private NavigationService navigationService;
         private string name;
         private string addressInfo;
@@ -143,7 +140,6 @@ namespace WAP2.ViewModels
         public AddressViewModel()
         {
             dialogService = new DialogService();
-            apiService = new ApiService();
             navigationService = new NavigationService();
             IsEnabled = true;
 
@@ -157,14 +153,11 @@ namespace WAP2.ViewModels
         //Cargar direcciones de la base de datos
         private async void LoadAddresses()
         {
-            var response = await apiService.Get<Address>("https://wapback.azurewebsites.net", "/api", "/Addresses");
-            if (!response.IsSuccess)
-            {
-                await dialogService.ShowMessage("Error", response.Message);
-            }
-            FilterAddresses((List<Address>)response.Result, UserRID);
+            //TODO: Crear tablas de direcciones en Firebase y comando de cargar todas las direcciones del usuario
+
+            //FilterAddresses((List<Address>)response.Result, UserRID);
         }
-        //Filtrar pdirecciones del usuario
+        //Filtrar direcciones del usuario
         private void FilterAddresses(List<Address> listAddresses, string UserID)
         {
             addresses.Clear();
@@ -201,7 +194,7 @@ namespace WAP2.ViewModels
         public ICommand AddAddressCommand { get { return new RelayCommand(AddAddress); } }
         private async void AddAddress()
         {
-            await dialogService.ShowMessage("Test", "Pass");
+            await dialogService.ShowMessage("Test", "Ok");
             var address = new Address()
             {
                 Name = Name,
@@ -215,16 +208,16 @@ namespace WAP2.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            var response = await apiService.Post("https://wapback.azurewebsites.net", "/api", "/Addresses", address);
+            //TODO Comando subir direccion a firebase
 
             isRunning = false;
             isEnabled = true;
 
-            if (!response.IsSuccess)
+            /**if (!response.IsSuccess)
             {
                 await dialogService.ShowMessage("Error", response.Message);
                 return;
-            }
+            }**/
             await navigationService.Back();
         }
         #endregion

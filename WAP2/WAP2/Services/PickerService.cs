@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using WAP2.Models;
 
 namespace WAP2.Services
@@ -267,17 +265,6 @@ namespace WAP2.Services
             }
             return subcategorias;
         }
-        /*public List<Categoria> CategoriasCarouselAll()
-        {
-            List<String> list = categoryPickerList();
-            List<Categoria> categorias = new List<Categoria>();
-            foreach (string categoria in list)
-            {
-                categorias.Add(new Categoria(categoria));
-            }
-            return categorias;
-        }*/
-        
         public List<string> statusPickerList()
         {
             List<string> status = new List<string>

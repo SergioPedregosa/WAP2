@@ -1,5 +1,4 @@
-﻿using Microsoft.Graph.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using WAP2.Models;
 using WAP2.Services;
@@ -44,22 +43,7 @@ namespace WAP2.Views
             favoritesTemplate.ItemsSource = productoList;
         }
         #region Home
-        private void GetClaims()
-        {
-            //Descomentar cuando se vuelva a activar Azure     IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            /**var token = Transporter.authenticationResult.IdToken;
-            if (token != null)
-            {
-                var handler = new JwtSecurityTokenHandler();
-                var data = handler.ReadJwtToken(token);
-                var claims = data.Claims.ToList();
-                if (data != null)
-                {
-                    UsernameTest.Text = $"{data.Claims.FirstOrDefault(x => x.Type.Equals("name")).Value}";
-
-                }
-            }**/
-        }
+        
         private void ShowPopUp(object sender, EventArgs e)
         {
             //PopupNavigation.Instance.PushAsync(new PopUpSeleccionVentaRifa());

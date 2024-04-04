@@ -10,7 +10,6 @@ namespace WAP2.ViewModels
     {
         #region Attributes
         private DialogService dialogService;
-        private ApiService apiService;
         private NavigationService navigationService;
         private bool isRunning;
         private bool isEnabled;
@@ -47,7 +46,6 @@ namespace WAP2.ViewModels
         public EditProductViewModel(Producto producto)
         {
             dialogService = new DialogService();
-            apiService = new ApiService();
             navigationService = new NavigationService();
 
             ProductId = producto.ProductId;
@@ -83,15 +81,17 @@ namespace WAP2.ViewModels
 
             IsRunning = true;
             IsEnabled = false;
-            var response = await apiService.Put("https://wapback.azurewebsites.net", "/api", "/Products", this);
+            
+            //TODO: Comando Firebase editar producto
+
             IsRunning = false;
             IsEnabled = true;
 
-            if (!response.IsSuccess)
+            /**if (!response.IsSuccess)
             {
                 await dialogService.ShowMessage("Error", response.Message);
                 return;
-            }
+            }**/
             await navigationService.Back();
         }
         public ICommand DeleteProductoCommand { get { return new RelayCommand(DeleteProducto); } }
@@ -105,15 +105,17 @@ namespace WAP2.ViewModels
             }
             IsRunning = true;
             IsEnabled = false;
-            var response = await apiService.Delete("https://wapback.azurewebsites.net", "/api", "/Products", this);
+
+            //TODO: Comando Firebase eliminar producto
+
             IsRunning = false;
             IsEnabled = true;
 
-            if (!response.IsSuccess)
+            /**if (!response.IsSuccess)
             {
                 await dialogService.ShowMessage("Error", response.Message);
                 return;
-            }
+            }**/
             await navigationService.Back();
         }
         #endregion

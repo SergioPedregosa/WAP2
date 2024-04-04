@@ -3,7 +3,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Input;
 using WAP2.Models;
 using WAP2.Resources.Repositories;
@@ -14,7 +13,6 @@ namespace WAP2.ViewModels
     public class BuscadorViewModel : INotifyPropertyChanged
     {
         #region Attributes
-        private ApiService apiService;
         private NavigationService navigationService;
         private DialogService dialogService;
         private ProductRepository productRepository;
@@ -48,7 +46,6 @@ namespace WAP2.ViewModels
             //Singleton
             instance = this;
             //Services
-            apiService = new ApiService();
             navigationService = new NavigationService();
             dialogService = new DialogService();
             productRepository = new ProductRepository();
@@ -63,14 +60,6 @@ namespace WAP2.ViewModels
         //Cargar productos de la base de datos
         private async void LoadProducts()
         {
-            //Comando Azure
-            /**var respose = await apiService.Get<Producto>("https://wapback.azurewebsites.net", "/api", "/Products");
-            if (!respose.IsSuccess)
-            {
-                await dialogService.ShowMessage("Error", respose.Message);
-                return;
-            }
-            **/
             //Comando Firebase
             var response = await productRepository.GetAll();
             if (response.IsNullOrEmpty())

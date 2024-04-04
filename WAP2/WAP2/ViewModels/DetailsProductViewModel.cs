@@ -8,7 +8,6 @@ namespace WAP2.ViewModels
     {
         #region Attributes
         private DialogService dialogService;
-        private ApiService apiService;
         private NavigationService navigationService;
         private int currentProgressValue;
         private int totalProgressValue;
@@ -82,7 +81,6 @@ namespace WAP2.ViewModels
         public DetailsProductViewModel(Producto producto)
         {
             dialogService = new DialogService();
-            apiService = new ApiService();
             navigationService = new NavigationService();
 
             ProductId = producto.ProductId;

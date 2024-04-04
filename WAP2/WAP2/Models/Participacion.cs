@@ -30,7 +30,6 @@ namespace WAP2.Models
             Subcategory = producto.Subcategory;
             Status = producto.Status;
             Image = producto.Image;
-            ImageArray = producto.ImageArray;
             TempBarValue = producto.TempBarValue;
         }
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WAP2.ViewModels;
+﻿using WAP2.ViewModels;
 
 namespace WAP2.Infrastructure
 {
