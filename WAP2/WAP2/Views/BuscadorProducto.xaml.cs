@@ -1,4 +1,5 @@
 ﻿using System;
+using WAP2.Resources.Repositories;
 using WAP2.Services;
 using WAP2.ViewModels;
 using Xamarin.Forms;
@@ -11,6 +12,7 @@ namespace WAP2.Views
 	{
         PickerService pickerService;
         BuscadorViewModel buscadorViewModel = new BuscadorViewModel();
+        ProductRepository repository = new ProductRepository();
         public BuscadorProducto()
         {
             InitializeComponent();
@@ -30,22 +32,11 @@ namespace WAP2.Views
         //Busca productos segun los criterios establecidos
         private void Busqueda(object senderB, EventArgs ev)
         {
-            //if (PickerCategoria.SelectedItem.ToString() != string.Empty) {
-            /**buscadorViewModel.ObtenerDatos("",PickerCategoria.SelectedItem.ToString(),PickerSubcategoria.SelectedItem.ToString());
-            buscadorViewModel.RefreshProductsCommand.Execute(this);
-            Filtro.IsVisible = false;
-            ProductosBuscados.IsVisible = true;
-            CountProducts.Text = buscadorViewModel.ProductsCount() + " productos";
-            TextCategory.Text = "\"" + PickerSubcategoria.SelectedItem.ToString() + "\"";
-            **/
-
-            //TEMPORAL _________________________________________________-----------------------
-
-            /**} else
+            string searchValue = TxtSearch.Text;
+            if (!String.IsNullOrEmpty(searchValue))
             {
-                DisplayAlert("Error", "Seleccione una categoria", "Ok");
-            }*/
-
+                var products = repository.GetAllByName(searchValue);
+            }
         }
         //Devuelve al usuario al menu de busqueda
     }

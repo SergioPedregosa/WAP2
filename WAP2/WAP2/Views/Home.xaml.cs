@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using WAP2.Models;
+using WAP2.Resources.Repositories;
 using WAP2.Services;
 using WAP2.ViewModels;
 using Xamarin.Forms;
@@ -15,20 +16,13 @@ namespace WAP2.Views
         BuscadorViewModel buscadorViewModel;
         //TEMPORAL
         ProductService productService;
+        ProductRepository productRepository = new ProductRepository();
         List<Producto> productoList = new List<Producto>();
         public Home()
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
             //HOME
-            //this.BindingContext = this;
-            //CategoriasCarouselHome.ItemsSource = pickerService.CategoriasCorouselRows();
-            //GetClaims();
-            //var mainViewModel = MainViewModel.GetInstance();
-            //base.Appearing += (object sender, EventArgs e) =>
-            /**{
-                mainViewModel.RefreshProductsCommand.Execute(this);
-            };**/
 
             //BUSCADOR
 
@@ -39,7 +33,6 @@ namespace WAP2.Views
 
             buscadorViewModel.Load();
             productoList = productService.MountList();
-            //ProductTemplate.ItemsSource = productoList;
             favoritesTemplate.ItemsSource = productoList;
         }
         #region Home
@@ -80,24 +73,33 @@ namespace WAP2.Views
             PickerSubcategoria.ItemsSource = pickerService.subcategoryPickerList(PickerCategoria.SelectedItem.ToString());**/
         }
         //Busca productos segun los criterios establecidos
-        private void Busqueda(object senderB, EventArgs ev)
+        private async void Busqueda(object senderB, EventArgs ev)
         {
-            //if (PickerCategoria.SelectedItem.ToString() != string.Empty) {
-            /**buscadorViewModel.ObtenerDatos("",PickerCategoria.SelectedItem.ToString(),PickerSubcategoria.SelectedItem.ToString());
-            buscadorViewModel.RefreshProductsCommand.Execute(this);
-            Filtro.IsVisible = false;
-            ProductosBuscados.IsVisible = true;
-            CountProducts.Text = buscadorViewModel.ProductsCount() + " productos";
-            TextCategory.Text = "\"" + PickerSubcategoria.SelectedItem.ToString() + "\"";
-            **/
-
-            //TEMPORAL _________________________________________________-----------------------
-
-            /**} else
+            string searchValue = TxtSearch.Text;
+            if (!String.IsNullOrEmpty(searchValue))
             {
-                DisplayAlert("Error", "Seleccione una categoria", "Ok");
-            }*/
-
+                var products = await productRepository.GetAllByName(searchValue);
+                ProductTemplate.ItemsSource = null;
+                ProductTemplate.ItemsSource = products;
+            }
+            else
+            {
+                OnAppearing();
+            }
+        }
+        private async void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchValue = TxtSearch.Text;
+            if (!String.IsNullOrEmpty(searchValue))
+            {
+                var products = await productRepository.GetAllByName(searchValue);
+                ProductTemplate.ItemsSource = null;
+                ProductTemplate.ItemsSource = products;
+            }
+            else
+            {
+                OnAppearing();
+            }
         }
         //Devuelve al usuario al menu de busqueda
         #endregion
@@ -110,5 +112,11 @@ namespace WAP2.Views
         #region addProduct
 
         #endregion
+        protected override async void OnAppearing()
+        {
+            buscadorViewModel.Load();
+            ProductTemplate.ItemsSource = null;
+            ProductTemplate.ItemsSource = buscadorViewModel.Products;
+        }
     }
 }

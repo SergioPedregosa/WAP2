@@ -74,7 +74,6 @@ namespace WAP2.ViewModels
         {
             Products.Clear();
             productCount = 0;
-            //foreach (var product in productos.Where(w => w.Category == categoria && w.Subcategory == subcategoria))
             foreach (var product in productos)
             {
                 Products.Add(new ProductItemViewModel

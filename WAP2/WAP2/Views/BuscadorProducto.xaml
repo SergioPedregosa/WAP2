@@ -48,16 +48,11 @@
                 </Grid>
             </StackLayout>
             <StackLayout Margin="0,10,0,10">
-                <Frame Style="{StaticResource BaseCard}"
-               CornerRadius="30"
-               Padding="15,0,15,0">
-                    <Entry x:Name="Buscador"
-                                      Placeholder="Buscar libros, guitarras y mas..."
-                                      Style="{StaticResource entryStyle}"
-                                      BackgroundColor="Transparent">
-
-                    </Entry>
-                </Frame>
+                <SearchBar Placeholder="Buscar libros, guitarras y mas..."
+                           x:Name="TxtSearch"
+                           SearchButtonPressed="Busqueda">
+                    
+                </SearchBar>
             </StackLayout>
             <!-- Producto -->
             <StackLayout>

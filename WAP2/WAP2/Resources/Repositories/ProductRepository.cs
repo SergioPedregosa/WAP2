@@ -49,5 +49,24 @@ namespace WAP2.Resources.Repositories
             var image = await firebaseStorage.Child("Images").Child(fileName).PutAsync(img);
             return image;
         }
+
+        //Muestra los productos por nombre
+        public async Task<List<Producto>> GetAllByName(string name)
+        {
+            return (List<Producto>)(await firebaseClient.Child(nameof(Producto)).OnceAsync<Producto>()).Select(item => new Producto
+            {
+                ProductId = item.Key,
+                Name = item.Object.Name,
+                Description = item.Object.Description,
+                Price = item.Object.Price,
+                Created = item.Object.Created,
+                Category = item.Object.Category,
+                Subcategory = item.Object.Subcategory,
+                Status = item.Object.Status,
+                Image = item.Object.Image,
+                TempBarValue = item.Object.TempBarValue,
+                User_RID = item.Object.User_RID
+            }).Where(c => c.Name.ToLower().Contains(name.ToLower())).ToList();
+        }
     }
 }
