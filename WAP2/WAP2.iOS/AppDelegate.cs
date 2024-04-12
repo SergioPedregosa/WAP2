@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using Microsoft.Identity.Client;
 using UIKit;
 
 namespace WAP2.iOS
@@ -30,7 +29,6 @@ namespace WAP2.iOS
         }
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
-            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
             return base.OpenUrl(app, url, options);
         }
     }

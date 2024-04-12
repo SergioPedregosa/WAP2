@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:WAP2.Resources.CustomRenders"
+             x:Class="WAP2.Views.LoginUser">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Image Source="WAP.png"
+                   HorizontalOptions="End"
+                   HeightRequest="40">
+                
+            </Image>
+            <Label Text="Log in"
+                   FontAttributes="Bold"
+                   Style="{StaticResource BaseLabel}"
+                   FontSize="40"
+                   Padding="0,10,0,20">
+                
+            </Label>
+            <Label Text="Inicia sesión con una de estas opciones"
+                   Padding="0,0,0,20">
+                
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Login Google -->
+                <Frame Style="{StaticResource BaseCard}"
+                       CornerRadius="20"
+                       Padding="10"
+                       Margin="0,0,5,0"
+                       HasShadow="False">
+                    <Image Source="GoogleIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
+                        
+                    </Image>
+                </Frame>
+                <!-- Login Twitter -->
+                <Frame Style="{StaticResource BaseCard}"
+                       CornerRadius="20"
+                       Grid.Column="1"
+                       Padding="10"
+                       Margin="0,0,5,0"
+                       HasShadow="False">
+                    <Image Source="twitter.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
+                        
+                    </Image>
+                </Frame>
+                <!-- Login Apple -->
+                <Frame Style="{StaticResource BaseCard}"
+                       CornerRadius="20"
+                       Grid.Column="2"
+                       Padding="10"
+                       Margin="0,0,5,0"
+                       HasShadow="False">
+                    <Image Source="AppleIcon.png"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
+
+                    </Image>
+                </Frame>
+            </Grid>
+            <Grid Margin="0,25,0,25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="O"
+                       Grid.Column="1">
+                    
+                </Label>
+            </Grid>
+            <!-- EMAIL -->
+            <Frame Style="{StaticResource BaseCard}"
+                   CornerRadius="25"
+                   Padding="15,5,15,5"
+                   Margin="0,5,0,5"
+                   HasShadow="False">
+                <control:BorderlessEntry Placeholder="Correo"
+                                         x:Name="LoginEmail"
+                                         Keyboard="Email">
+
+                </control:BorderlessEntry>
+            </Frame>
+            <Frame Style="{StaticResource BaseCard}"
+                   CornerRadius="25"
+                   Padding="15,5,15,5"
+                   Margin="0,5,0,5"
+                   HasShadow="False">
+                <control:BorderlessEntry Placeholder="Contraseña"
+                                         x:Name="LoginPassword"
+                                         IsPassword="True">
+
+                </control:BorderlessEntry>
+            </Frame>
+            <Button Text="Inicia sesión"
+                    CornerRadius="25"
+                    Margin="0,5,0,5"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    Clicked="Login">
+                
+            </Button>
+            <Label HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="¿No tienes cuenta? ">
+                            
+                        </Span>
+                        <Span Text="Registrate"
+                              TextColor="{StaticResource PrimaryColor}">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="navToRegister"></TapGestureRecognizer>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

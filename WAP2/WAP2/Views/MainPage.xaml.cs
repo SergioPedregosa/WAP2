@@ -16,7 +16,7 @@ namespace WAP2.Views
         private void navToLogin(object sender, EventArgs e)
         {
             //TODO: Implementar el login de Firebase
-            Navigation.PushAsync(new Home());
+            Navigation.PushAsync(new LoginUser());
         }
     }
 }
