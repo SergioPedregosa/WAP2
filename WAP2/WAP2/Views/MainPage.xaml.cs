@@ -1,5 +1,6 @@
-﻿using System;
-
+﻿using FirebaseAdmin;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,8 +16,19 @@ namespace WAP2.Views
 
         private void navToLogin(object sender, EventArgs e)
         {
-            //TODO: Implementar el login de Firebase
+            bool HasKey = Preferences.ContainsKey("token");
+            if (HasKey)
+            {
+                string token = Preferences.Get("token", "");
+                if (!string.IsNullOrEmpty(token))
+                {
+                    Navigation.PushAsync(new Home());
+                }
+            }
+            else
+            {
             Navigation.PushAsync(new LoginUser());
+            }
         }
     }
 }

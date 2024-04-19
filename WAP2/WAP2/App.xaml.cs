@@ -1,4 +1,6 @@
-﻿using WAP2.Helpers;
+﻿using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using WAP2.Helpers;
 using WAP2.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -12,7 +14,6 @@ namespace WAP2
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
-            
         }
 
         protected override void OnStart()

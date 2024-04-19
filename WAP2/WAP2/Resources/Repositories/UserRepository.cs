@@ -1,8 +1,8 @@
 ﻿using Firebase.Auth;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using FirebaseAdmin.Auth;
 using System.Threading.Tasks;
+using WAP2.Services;
+using Xamarin.Essentials;
 
 
 namespace WAP2.Resources.Repositories
@@ -30,11 +30,13 @@ namespace WAP2.Resources.Repositories
         public async Task<string> Login(string email, string password)
         {
             var token = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email, password);
+            Preferences.Set("Name", token.User.DisplayName);
             if (!string.IsNullOrEmpty(token.FirebaseToken))
             {
                 return token.FirebaseToken;
             }
             return "";
         }
+        
     }
 }

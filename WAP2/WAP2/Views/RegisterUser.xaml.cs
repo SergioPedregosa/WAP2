@@ -14,6 +14,7 @@ namespace WAP2.Views
         public RegisterUser()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         private void navToLogin(object sender, EventArgs e)

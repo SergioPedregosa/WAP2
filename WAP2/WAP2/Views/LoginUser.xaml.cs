@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WAP2.Resources.Repositories;
 using WAP2.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,6 +15,8 @@ namespace WAP2.Views
         public LoginUser()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
+            
         }
 
         private void navToRegister(object sender, EventArgs e)
@@ -34,6 +33,8 @@ namespace WAP2.Views
                 string token = await userRepository.Login(email, password);
                 if (!string.IsNullOrEmpty(token))
                 {
+                    Preferences.Set("token", token);
+                    Preferences.Set("email", email);
                     await Navigation.PushAsync(new Home());
                 }
                 else
@@ -46,4 +47,4 @@ namespace WAP2.Views
             }
         }
     }
-}
+}   

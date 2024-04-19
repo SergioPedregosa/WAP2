@@ -1,9 +1,11 @@
-﻿using System;
+﻿using FirebaseAdmin.Auth;
+using System;
 using System.Collections.Generic;
 using WAP2.Models;
 using WAP2.Resources.Repositories;
 using WAP2.Services;
 using WAP2.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,13 +19,14 @@ namespace WAP2.Views
         //TEMPORAL
         ProductService productService;
         ProductRepository productRepository = new ProductRepository();
+        UserRepository userRepository = new UserRepository(); 
         List<Producto> productoList = new List<Producto>();
         public Home()
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
             //HOME
-
+            usernameText.Text = Preferences.Get("Name","");
             //BUSCADOR
 
             buscadorViewModel = BuscadorViewModel.GetInstance();
@@ -60,6 +63,11 @@ namespace WAP2.Views
         private void navToBuscador(object sender, EventArgs e)
         {
             Navigation.PushAsync(new BuscadorProducto());
+        }
+        private void LogOut(object sender, EventArgs e)
+        {
+            Preferences.Clear();
+            Navigation.PopToRootAsync();
         }
         #endregion
         #region Buscador
@@ -118,5 +126,7 @@ namespace WAP2.Views
             ProductTemplate.ItemsSource = null;
             ProductTemplate.ItemsSource = buscadorViewModel.Products;
         }
+
+        
     }
 }

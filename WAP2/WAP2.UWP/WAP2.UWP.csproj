@@ -150,6 +150,9 @@
     <PackageReference Include="CommunityToolkit.Mvvm">
       <Version>8.2.2</Version>
     </PackageReference>
+    <PackageReference Include="FirebaseAdmin">
+      <Version>2.4.1</Version>
+    </PackageReference>
     <PackageReference Include="FirebaseAuthentication.net">
       <Version>3.7.2</Version>
     </PackageReference>
